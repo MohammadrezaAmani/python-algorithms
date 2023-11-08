@@ -1,4 +1,3 @@
-from sys import prefix
 
 
 def product_except_self(nums):

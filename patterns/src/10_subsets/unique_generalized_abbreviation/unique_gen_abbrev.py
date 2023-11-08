@@ -1,4 +1,3 @@
-from collections import deque
 
 
 def generate_generalized_abbreviation(word):

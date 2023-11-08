@@ -36,5 +36,5 @@ def bfs(graph, visited, node, count, k, result):
         return
 
     for path in graph[node]:
-        if not (path in visited):
+        if path not in visited:
             bfs(graph, visited, path, count + 1, k, result)

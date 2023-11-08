@@ -12,7 +12,7 @@ class Graph(object):
         visited.append(vertex)
 
         for v in self.graph[vertex]:
-            if not v in visited:
+            if v not in visited:
                 self.topological_sort_util(v, visited, stack)
 
         stack.insert(0, vertex)

@@ -1,5 +1,4 @@
 from heapq import *
-from unittest.mock import sentinel
 
 
 # Definition for singly-linked list.

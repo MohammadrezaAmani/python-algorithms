@@ -1,5 +1,4 @@
 from collections import deque
-from locale import currency
 
 
 class TreeNode:

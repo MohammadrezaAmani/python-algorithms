@@ -1,4 +1,3 @@
-from collections import deque
 
 
 def isBipartite(graph) -> bool:

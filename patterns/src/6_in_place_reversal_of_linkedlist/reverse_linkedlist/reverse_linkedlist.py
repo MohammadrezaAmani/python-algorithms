@@ -1,5 +1,4 @@
 from __future__ import print_function
-import re
 
 # Time complexity
 # The time complexity of our algorithm will be O(N)
