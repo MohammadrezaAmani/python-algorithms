@@ -1,5 +1,3 @@
-
-
 def isBipartite(graph) -> bool:
     color = [-1] * len(graph)
 

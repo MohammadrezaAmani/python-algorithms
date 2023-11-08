@@ -1,5 +1,3 @@
-
-
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
         self.val = val

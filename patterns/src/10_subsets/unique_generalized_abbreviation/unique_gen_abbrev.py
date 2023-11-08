@@ -1,5 +1,3 @@
-
-
 def generate_generalized_abbreviation(word):
     return
 

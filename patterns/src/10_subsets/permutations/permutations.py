@@ -1,5 +1,3 @@
-
-
 from collections import deque
 
 # Time complexity O(N*N!)

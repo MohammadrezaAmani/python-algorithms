@@ -1,5 +1,3 @@
-
-
 def product_except_self(nums):
     res = [1] * len(nums)
 

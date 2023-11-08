@@ -1,5 +1,3 @@
-
-
 # Time complexity O(N^3)
 # Sorting the array will take O(N*logN).
 # Overall searchQuadruplets() will take O(N * logN + N^3),
