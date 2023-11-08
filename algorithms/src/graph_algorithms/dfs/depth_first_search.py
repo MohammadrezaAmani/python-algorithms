@@ -1,4 +1,3 @@
-
 def dfs(graph, vertex):
     if vertex:
         result, visited, stack = [], set(vertex), [vertex]
@@ -13,7 +12,8 @@ def dfs(graph, vertex):
                     visited.add(node)
 
         return result
-        
+
+
 graph = {
     "a": ["b", "c"],
     "b": ["a", "d", "e"],

@@ -1,10 +1,10 @@
 from collections import deque, defaultdict
+
+
 class Node:
     def __init__(self, val):
         self.val = val
         self.left = self.right = None
-
-
 
 
 # Time  O(N) + O(WLog W)
@@ -17,7 +17,8 @@ class Node:
 
 
 def topView(root):
-    if not root: return
+    if not root:
+        return
 
     vertical_order = defaultdict(dict)
     queue = deque([(root, 0)])
@@ -31,16 +32,15 @@ def topView(root):
                 vertical_order[x] = node.val
 
             if node.left:
-                queue.append((node.left, x-1))
-            if node.right: 
-                queue.append((node.right, x+1))
+                queue.append((node.left, x - 1))
+            if node.right:
+                queue.append((node.right, x + 1))
 
     result = []
     for key in sorted(vertical_order.keys()):
         result.append(vertical_order[key])
-    
-    return result
 
+    return result
 
 
 node1 = Node(20)
@@ -58,4 +58,4 @@ node2.left, node2.right = node4, node5
 node3.right = node7
 node5.left, node5.right = node8, node9
 
-print(topView(node1)) #[[5, 8, 20, 22, 25]
+print(topView(node1))  # [[5, 8, 20, 22, 25]

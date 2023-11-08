@@ -1,9 +1,11 @@
 def kth_smallest_in_bst(root, k):
     def kth_smallest_helper(node):
         nonlocal i, kth_smallest, found
-        if not node: return 
-        if found: return
-        
+        if not node:
+            return
+        if found:
+            return
+
         kth_smallest_helper(node.left)
         i += 1
 

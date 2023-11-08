@@ -2,18 +2,22 @@ from collections import deque
 
 # Time O(h + k) | Space O(h)
 
+
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-# This approach begins with the desired nodes, and work backwards. 
-# We do this by recursing first on the right subtree and then on the left subtree. 
+
+# This approach begins with the desired nodes, and work backwards.
+# We do this by recursing first on the right subtree and then on the left subtree.
 # This amounts to a reverse- inorder traversal
+
 
 def find_k_largest(tree, k):
     k_largest_elements = []
+
     def find_k_largest_helper(node):
         if node and len(k_largest_elements) < k:
             find_k_largest_helper(node.right)
@@ -21,12 +25,11 @@ def find_k_largest(tree, k):
             if len(k_largest_elements) < k:
                 k_largest_elements.append(node.val)
                 find_k_largest_helper(node.left)
-    
+
     find_k_largest_helper(tree)
-    
+
     return k_largest_elements
 
-    
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)
@@ -59,6 +62,6 @@ bst_13.right = bst_15
 bst_6.right = bst_11
 
 
-print(find_k_largest(bst, 3)) # [53, 47, 43]
-print(find_k_largest(bst, 2)) # [53, 47]
-print(find_k_largest(bst, 1)) # [53]
+print(find_k_largest(bst, 3))  # [53, 47, 43]
+print(find_k_largest(bst, 2))  # [53, 47]
+print(find_k_largest(bst, 1))  # [53]

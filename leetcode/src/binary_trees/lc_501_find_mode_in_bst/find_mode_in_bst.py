@@ -6,7 +6,8 @@ from collections import defaultdict
 def find_mode_in_bst(root):
     def find_mode_in_bst_helper(node):
         nonlocal count, max_count, prev
-        if node is None: return
+        if node is None:
+            return
 
         find_mode_in_bst_helper(node.left)
         if prev is not None:
@@ -14,18 +15,17 @@ def find_mode_in_bst(root):
                 count += 1
             else:
                 count = 1
-        
+
         if count > max_count:
             max_count = count
             modes.clear()
             modes.append(node.val)
         elif count == max_count:
             modes.append(node.val)
-        
+
         prev = node.val
         find_mode_in_bst_helper(node.right)
 
-    
     count, max_count, prev = 1, 0, None
     modes = []
     find_mode_in_bst_helper(root)
@@ -38,7 +38,8 @@ def find_mode_in_bst(root):
 def find_mode_in_bst_preorder(root):
     def find_mode_in_bst_helper(node):
         nonlocal max_count
-        if node is None: return
+        if node is None:
+            return
 
         values_to_count[node.val] += 1
         count_to_values[values_to_count[node.val]].append(node.val)
@@ -50,5 +51,5 @@ def find_mode_in_bst_preorder(root):
     values_to_count, count_to_values = defaultdict(int), defaultdict(list)
     max_count = 0
     find_mode_in_bst_helper(root)
-    
+
     return count_to_values[max_count]

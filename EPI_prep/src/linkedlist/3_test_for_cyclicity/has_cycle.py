@@ -1,4 +1,3 @@
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val, self.next = val, next
@@ -12,7 +11,7 @@ def has_cycle(L):
 
         if slow == fast:
             return True
-    
+
 
 l1_2 = ListNode(2)
 l1_3 = ListNode(3)
@@ -23,8 +22,8 @@ l1_2.next, l1_3.next = l1_3, l1_5
 l1_5.next, l1_7.next = l1_7, l1_3
 
 
-print(has_cycle(l1_2)) # True
+print(has_cycle(l1_2))  # True
 
 l1_7.next = l1_11
 
-print(has_cycle(l1_2)) # None
+print(has_cycle(l1_2))  # None

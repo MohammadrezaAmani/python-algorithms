@@ -2,25 +2,24 @@ import math
 
 
 class TreeNode:
-  def __init__(self, val, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
-
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
 # Time complexity #
-# The time complexity of the algorithm is O(N), 
-# where ‘N’ is the total number of nodes in the tree. 
+# The time complexity of the algorithm is O(N),
+# where ‘N’ is the total number of nodes in the tree.
 # This is due to the fact that we traverse each node once.
 
+
 # Space complexity
-# The space complexity of the algorithm will be O(N) in the worst case. 
-# This space will be used to store the recursion stack. 
-# The worst case will happen when the given tree 
+# The space complexity of the algorithm will be O(N) in the worst case.
+# This space will be used to store the recursion stack.
+# The worst case will happen when the given tree
 # is a linked list (i.e., every node has only one child).
 class MaximumPathSum:
-
     def find_maximum_path_sum(self, root):
         self.globalMaximumSum = -math.inf
         self.find_maximum_path_sum_recursive(root)
@@ -30,10 +29,8 @@ class MaximumPathSum:
         if currentNode is None:
             return 0
 
-        maxPathSumFromLeft = self.find_maximum_path_sum_recursive(
-            currentNode.left)
-        maxPathSumFromRight = self.find_maximum_path_sum_recursive(
-            currentNode.right)
+        maxPathSumFromLeft = self.find_maximum_path_sum_recursive(currentNode.left)
+        maxPathSumFromRight = self.find_maximum_path_sum_recursive(currentNode.right)
 
         # ignore paths with negative sums, since we need to find the maximum sum we should
         # ignore any path which has an overall negative sum.
@@ -70,4 +67,3 @@ print("Maximum Path Sum: " + str(maximumPathSum.find_maximum_path_sum(root)))
 root = TreeNode(-1)
 root.left = TreeNode(-3)
 print("Maximum Path Sum: " + str(maximumPathSum.find_maximum_path_sum(root)))
-

@@ -3,8 +3,8 @@ class TrieNode:
         self.children, self.val = {}, 0
         self.end_of_word = False
 
-class MapSum:
 
+class MapSum:
     def __init__(self):
         self.root = TrieNode()
 
@@ -35,7 +35,6 @@ class MapSum:
         return map_sum
 
 
-
 # Your MapSum object will be instantiated and called as such:
 # obj = MapSum()
 # obj.insert("apple",3)
@@ -46,10 +45,10 @@ class MapSum:
 
 
 obj2 = MapSum()
-obj2.insert("apple",3)
-obj2.insert("ap",1)
+obj2.insert("apple", 3)
+obj2.insert("ap", 1)
 print(obj2.sum("ap"))
-obj2.insert("app",2)
+obj2.insert("app", 2)
 print(obj2.sum("ap"))
-obj2.insert("app",2)
+obj2.insert("app", 2)
 print(obj2.sum("ap"))

@@ -1,8 +1,7 @@
-
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val, self.next = val, next
+
 
 # Time O(n + m) | Space O(max(n, m))
 # where n and m are the lengths of the two lists.
@@ -17,8 +16,9 @@ def add_list(L1, L2):
         L1 = L1.next if L1 else None
         L2 = L2.next if L2 else None
         result_iter = result_iter.next
-    
+
     return result.next
+
 
 head1 = ListNode(3)
 node_1 = ListNode(1)
@@ -35,15 +35,14 @@ def print_node(node):
     while node:
         print(node.val, end="")
         node = node.next
-    
+
     print("\n")
 
 
-
 # add 413 + 907 = 1320  --> 0231
-print_node(add_list(head1, head2)) # 0231
+print_node(add_list(head1, head2))  # 0231
 
 node_4.next = ListNode(7)
 
 # add 413 + 7907 = 8320  --> 0238
-print_node(add_list(head1, head2)) # 0238
+print_node(add_list(head1, head2))  # 0238

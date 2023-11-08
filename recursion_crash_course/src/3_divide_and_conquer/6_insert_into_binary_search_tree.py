@@ -12,6 +12,7 @@ def pre_order(node):
     pre_order(node.left)
     pre_order(node.right)
 
+
 #         100
 #         / \
 #     70       120
@@ -21,13 +22,14 @@ def insert(node, val):
     if node is None:
         new_node = Node(val)
         return new_node
-    
+
     if val <= node.val:
         node.left = insert(node.left, val)
     else:
         node.right = insert(node.right, val)
-    
+
     return node
+
 
 root = Node(100)
 root.left = Node(70)

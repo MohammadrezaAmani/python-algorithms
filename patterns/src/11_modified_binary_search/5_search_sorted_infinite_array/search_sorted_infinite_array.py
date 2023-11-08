@@ -2,7 +2,6 @@ import math
 
 
 class ArrayReader:
-
     def __init__(self, arr):
         self.arr = arr
 
@@ -13,13 +12,14 @@ class ArrayReader:
 
 
 # Time complexity
-# There are two parts of the algorithm. 
-# In the first part, we keep increasing the bound’s size exponentially (double it every time) 
-# while searching for the proper bounds. 
-# Therefore, this step will take O(logN) assuming that the array will have maximum ‘N’ numbers. 
-# In the second step, we perform the binary search which will take O(logN), 
-# so the overall time complexity of our algorithm will be O(logN + logN), 
+# There are two parts of the algorithm.
+# In the first part, we keep increasing the bound’s size exponentially (double it every time)
+# while searching for the proper bounds.
+# Therefore, this step will take O(logN) assuming that the array will have maximum ‘N’ numbers.
+# In the second step, we perform the binary search which will take O(logN),
+# so the overall time complexity of our algorithm will be O(logN + logN),
 # which is asymptotically equivalent to O(logN).
+
 
 # Space complexity
 # The algorithm runs in constant space O(1).

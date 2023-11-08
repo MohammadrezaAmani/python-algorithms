@@ -6,10 +6,11 @@ class ListNode:
 
 
 def sortList(head):
-    if not head or not head.next: return head
+    if not head or not head.next:
+        return head
 
     mid = getMid(head)
-    second_half = mid.next 
+    second_half = mid.next
     mid.next = None
 
     left = sortList(head)
@@ -17,13 +18,14 @@ def sortList(head):
 
     return mergeTwoLists(left, right)
 
-    
+
 def getMid(head):
     slow = fast = head
     while fast.next and fast.next.next:
         slow, fast = slow.next, fast.next.next
-    
+
     return slow
+
 
 def mergeTwoLists(l1, l2):
     sentinel = merge = ListNode()

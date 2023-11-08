@@ -19,9 +19,9 @@ def splitListToParts(head, k):
 
         for j in range(min_split_count + extra):
             partition.next = partition = ListNode(curr.val)
-            if curr: 
+            if curr:
                 curr = curr.next
 
         result.append(partition_head.next)
-    
+
     return result

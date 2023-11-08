@@ -3,11 +3,11 @@ class Queue:
     def __init__(self):
         super().__init__()
         self.items = []
-        
+
     def __str__(self):
         super().__str__()
         values = [str(x) for x in self.items]
-        return ' '.join(values)
+        return " ".join(values)
 
     def enqueue(self, value):
         self.items.append(value)

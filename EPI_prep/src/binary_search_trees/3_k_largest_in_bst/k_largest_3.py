@@ -1,5 +1,6 @@
 from heapq import *
 
+
 # Time O(nlog n) | Space O(n)
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
@@ -7,13 +8,14 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 def find_k_largest(tree, k):
     nodes = []
 
     def inorder(node):
         if node is None:
-            return 
-            
+            return
+
         inorder(node.left)
         heappush(nodes, -node.val)
         inorder(node.right)
@@ -26,7 +28,6 @@ def find_k_largest(tree, k):
 
     return result
 
-    
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)
@@ -59,6 +60,6 @@ bst_13.right = bst_15
 bst_6.right = bst_11
 
 
-print(find_k_largest(bst, 3)) # [53, 47, 43]
-print(find_k_largest(bst, 2)) # [53, 47]
-print(find_k_largest(bst, 1)) # [53]
+print(find_k_largest(bst, 3))  # [53, 47, 43]
+print(find_k_largest(bst, 2))  # [53, 47]
+print(find_k_largest(bst, 1))  # [53]

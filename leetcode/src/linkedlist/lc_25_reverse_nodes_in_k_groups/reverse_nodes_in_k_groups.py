@@ -4,8 +4,10 @@ class ListNode:
         self.val = val
         self.next = next
 
-def reverseKGroup( head, k):
-    if not head or not head.next: return head
+
+def reverseKGroup(head, k):
+    if not head or not head.next:
+        return head
 
     list_length, node = 0, head
     while node:
@@ -21,7 +23,7 @@ def reverseKGroup( head, k):
             curr.next = prev
             prev, curr = curr, next_node
             i -= 1
-        
+
         if last_node_previous_sublist:
             last_node_previous_sublist.next = prev
         else:

@@ -18,18 +18,17 @@ class Trie:
     def __init__(self):
         self.root = dict()
         self.tail_nodes = []
-    
+
     def insert(self, word):
         curr = self.root
-        for i in range(len(word)-1, -1, -1):
+        for i in range(len(word) - 1, -1, -1):
             char = word[i]
             if char not in curr:
                 curr[char] = dict()
 
             curr = curr[char]
         self.tail_nodes.append((curr, len(word) + 1))
-    
-    
+
 
 def minimumLengthEncoding(words):
     unique_words = set(words)
@@ -37,7 +36,7 @@ def minimumLengthEncoding(words):
 
     for word in unique_words:
         trie.insert(word)
-    
+
     min_length = 0
     for node, count in trie.tail_nodes:
         if len(node) == 0:
@@ -45,6 +44,7 @@ def minimumLengthEncoding(words):
 
     return min_length
 
-print(minimumLengthEncoding(["time","me","bell", "el"])) #13
-print(minimumLengthEncoding(["time","me","bell", "ll", "ti"])) #13
-print(minimumLengthEncoding(["time","time","time", "time", "time"])) #5
+
+print(minimumLengthEncoding(["time", "me", "bell", "el"]))  # 13
+print(minimumLengthEncoding(["time", "me", "bell", "ll", "ti"]))  # 13
+print(minimumLengthEncoding(["time", "time", "time", "time", "time"]))  # 5

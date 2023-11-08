@@ -18,7 +18,7 @@ def merge(nums, start, mid, end):
             temp[k] = nums[j]
             j += 1
         k += 1
-    
+
     while i <= mid:
         temp[k] = nums[i]
         k += 1
@@ -28,7 +28,7 @@ def merge(nums, start, mid, end):
         temp[k] = nums[j]
         k += 1
         j += 1
-    
+
     i, j = 0, start
     while i < len(temp):
         nums[j] = temp[i]

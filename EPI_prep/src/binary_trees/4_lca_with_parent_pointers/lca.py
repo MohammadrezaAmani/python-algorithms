@@ -3,13 +3,14 @@ class Node:
         self.val = val
         self.left = self.right = self.parent = None
 
+
 def lca(node_1, node_2):
     if not node_1 or not node_2:
         return node_1 or node_2
-    
+
     n1, n2 = node_1, node_2
 
-    #get depth of both nodes
+    # get depth of both nodes
     n1_depth, n2_depth = get_depth(node_1), get_depth(node_2)
 
     # find depth difference to see if they are on the same level
@@ -20,21 +21,23 @@ def lca(node_1, node_2):
         # make n1 always point to the node with the heighest depth
         if n2_depth > n1_depth:
             n1, n2 = node_2, node_1
-        
+
         # move n1 node to the same level as n2
         while n1.parent and depth_diff > 0:
             depth_diff -= 1
             n1 = n1.parent
-    
+
     # if they point to the same node when on the same level,
     # then one node was the ancestor of the other, hence return one of them
-    if n1 is n2: return n1
+    if n1 is n2:
+        return n1
 
     # find common ancestor by iterating upwards the tree
     while n1 is not n2:
         n1, n2 = n1.parent, n2.parent
 
     return n1
+
 
 def get_depth(node):
     depth = 0
@@ -43,7 +46,7 @@ def get_depth(node):
         # iterate upwards to the root to find the depth of a node
         while temp.parent:
             depth += 1
-            temp = temp.parent 
+            temp = temp.parent
     return depth
 
 

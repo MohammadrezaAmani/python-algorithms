@@ -14,8 +14,9 @@ def numDistinct(s, t):
         right = count(i, chars)
 
         return left + right
-    
+
     return count(0, [])
 
-print(numDistinct(s = "rabbbit", t = "rabbit")) #3
-print(numDistinct(s = "babgbag", t = "bag")) #5
+
+print(numDistinct(s="rabbbit", t="rabbit"))  # 3
+print(numDistinct(s="babgbag", t="bag"))  # 5

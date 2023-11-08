@@ -4,11 +4,12 @@
 # Space complexity
 # The algorithm runs in constant space O(1) but modifies the input array.
 
+
 def find_duplicate(nums):
     i, n = 0, len(nums)
-    
+
     while i < n:
-        if nums[i] != i+1:
+        if nums[i] != i + 1:
             j = nums[i] - 1
             if nums[i] != nums[j]:
                 nums[i], nums[j] = nums[j], nums[i]
@@ -16,7 +17,7 @@ def find_duplicate(nums):
                 return nums[i]
         else:
             i += 1
-    
+
     return -1
 
 

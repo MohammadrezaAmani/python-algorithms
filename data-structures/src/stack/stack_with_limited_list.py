@@ -1,15 +1,16 @@
-#methods 1. pop, push, peek, isEmpty, isFull, delete
+# methods 1. pop, push, peek, isEmpty, isFull, delete
+
 
 class Stack:
     def __init__(self, size):
         super().__init__()
         self.size = size
         self.list = []
-        
+
     def __str__(self):
         values = self.list.reverse()
         values = [str(x) for x in self.list]
-        return '\n'.join(values)
+        return "\n".join(values)
 
     def push(self, value):
         if self.isFull():
@@ -22,14 +23,13 @@ class Stack:
             return self.list.pop()
 
         return None
-        
+
     def peek(self):
         lastIndex = len(self.list) - 1
         if self.isEmpty():
             return None
         else:
             return self.list[lastIndex]
-
 
     def isEmpty(self):
         if self.list == []:
@@ -45,7 +45,6 @@ class Stack:
 
     def delete(self):
         self.list = None
-
 
 
 stack = Stack(3)

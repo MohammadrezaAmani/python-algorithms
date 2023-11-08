@@ -7,18 +7,20 @@ class TreeNode:
 
 # Time O(n) | Space O(n)
 
+
 def create_list_of_leaves(tree):
     result = []
+
     def traverse_tree(node):
         if node is None:
             return []
-        
+
         if node.left is None and node.right is None:
             result.append(node)
-        
+
         traverse_tree(node.left)
         traverse_tree(node.right)
-    
+
     traverse_tree(tree)
     return result
 

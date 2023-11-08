@@ -4,6 +4,7 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 def addTwoNumbers(l1, l2):
     sentinel = result = ListNode(0)
     l1, l2 = reverse(l1), reverse(l2)
@@ -15,13 +16,13 @@ def addTwoNumbers(l1, l2):
         curr_sum = l1_val + l2_val + carry
 
         result.next = ListNode(curr_sum % 10)
-        # update carry 
+        # update carry
         carry = curr_sum // 10
-        # update pointers 
+        # update pointers
         l1 = l1.next if l1 else None
         l2 = l2.next if l2 else None
         result = result.next
-    
+
     return reverse(sentinel.next)
 
 

@@ -1,6 +1,7 @@
 # The time complexity of the algorithm is O(n)
 # Space complexity is O(1).
 
+
 def find_duplicate(arr):
     slow, fast = arr[0], arr[arr[0]]
     while slow != fast:
@@ -35,4 +36,3 @@ def find_start(arr, cycleLength):
 print(find_duplicate([1, 4, 4, 3, 2]))
 print(find_duplicate([2, 1, 3, 3, 5, 4]))
 print(find_duplicate([2, 4, 1, 4, 4]))
-

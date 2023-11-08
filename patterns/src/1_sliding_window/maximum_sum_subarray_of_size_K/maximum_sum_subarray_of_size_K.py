@@ -1,21 +1,21 @@
-#Time complexity will be O(N).
-#Space complexity O(1) (algorithm runs in constant space).
+# Time complexity will be O(N).
+# Space complexity O(1) (algorithm runs in constant space).
 def max_sum_subarray(arr, k):
     arr_len = len(arr)
     if arr_len < k:
         return 0
-    
+
     result = 0.0
     sum, start = 0.0, 0
-    
+
     for i in range(arr_len):
         sum += arr[i]
-        
+
         if i >= (k - 1):
             result = sum if sum > result else result
             sum -= arr[start]
             start += 1
-            
+
     return result
 
 

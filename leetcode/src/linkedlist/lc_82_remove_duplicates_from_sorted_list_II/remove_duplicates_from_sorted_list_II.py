@@ -13,11 +13,11 @@ def deleteDuplicates(head):
         while it and it.val == node.val:
             is_duplicate = True
             it = it.next
-        
+
         if not is_duplicate:
             result.next = node
             result = result.next
         node = it
 
-    result.next  = None
+    result.next = None
     return sentinel.next

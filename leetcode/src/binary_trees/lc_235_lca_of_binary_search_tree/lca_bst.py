@@ -4,6 +4,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 def lca_bst(root, p, q):
     def lca_helper(node):
         if node is None:
@@ -15,5 +16,5 @@ def lca_bst(root, p, q):
             return lca_bst(node.right, p, q)
         else:
             return node
-    
+
     return lca_helper(root)

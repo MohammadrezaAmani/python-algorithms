@@ -1,5 +1,6 @@
 def swapPairs(head):
-    if not head or not head.next: return head
+    if not head or not head.next:
+        return head
 
     prev, curr = None, head
     while curr:
@@ -10,7 +11,7 @@ def swapPairs(head):
             curr.next = prev
             prev, curr = curr, next_node
             i -= 1
-        
+
         if last_node_previous_sublist is None:
             head = prev
         else:

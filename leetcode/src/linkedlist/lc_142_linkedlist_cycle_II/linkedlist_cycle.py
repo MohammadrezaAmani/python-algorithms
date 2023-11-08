@@ -7,12 +7,12 @@ class ListNode:
 
 def detectCycle(head):
     slow = fast = head
-    
+
     while fast and fast.next:
         slow, fast = slow.next, fast.next.next
         if slow == fast:
             pointer = head
             while pointer and slow and pointer != slow:
                 slow, pointer = slow.next, pointer.next
-            
+
             return pointer

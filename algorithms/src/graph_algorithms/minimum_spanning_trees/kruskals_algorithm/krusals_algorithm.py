@@ -1,6 +1,8 @@
 def find_parent(node, parent):
-    if node == parent[node]: return node
+    if node == parent[node]:
+        return node
     return find_parent(parent[node], parent)
+
 
 def union(u, v, parent, rank):
     u = find_parent(u, parent)
@@ -27,16 +29,17 @@ def union(u, v, parent, rank):
 # Space Complexity
 # O(M) + O(N) + O(N)
 
+
 # Final --> O(N)
 # Where N represent the number of nodes stored in both parent and rank arrays
 # Where M represent number of edges stored in mst array
 def kruskals_algo(edges, n):
-    edges.sort(key=lambda x :x[2])
+    edges.sort(key=lambda x: x[2])
     parent, rank = [], []
     for i in range(n):
         rank.append(0)
         parent.append(i)
-    
+
     mst_cost, mst = 0, []
     for edge in edges:
         u, v, weight = 0, 1, 2
@@ -47,6 +50,7 @@ def kruskals_algo(edges, n):
 
     return mst_cost
 
-data = [[0,1,2], [0,3,6], [1,3,8], [1,2,3], [1,4,5], [2,4,7]]
+
+data = [[0, 1, 2], [0, 3, 6], [1, 3, 8], [1, 2, 3], [1, 4, 5], [2, 4, 7]]
 
 print(kruskals_algo(data, 5))

@@ -1,9 +1,11 @@
 from collections import deque
 
+
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
         self.val, self.next = val, None
-        self.left, self.right = left, right 
+        self.left, self.right = left, right
+
 
 def compute_right_sibling_tree(tree):
     if tree:
@@ -24,8 +26,6 @@ def compute_right_sibling_tree(tree):
 
                 if curr.right:
                     queue.append(curr.right)
-
-
 
 
 node_1 = TreeNode(1)

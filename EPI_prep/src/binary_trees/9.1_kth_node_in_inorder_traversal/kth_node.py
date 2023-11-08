@@ -8,7 +8,7 @@ class Node:
 
 
 def kth_node(tree, k):
-    Result = namedtuple('Result', ['status', 'node'])
+    Result = namedtuple("Result", ["status", "node"])
     i = 0
 
     def inorder(node):
@@ -23,15 +23,15 @@ def kth_node(tree, k):
         i += 1
         if i == k:
             return Result(True, node)
-        
+
         right_result = inorder(node.right)
         if right_result.status:
             return right_result
-        
+
         return Result(False, None)
 
-    
     return inorder(tree).node
+
 
 def kth_node_2(tree, k):
     result = []
@@ -44,10 +44,8 @@ def kth_node_2(tree, k):
         inorder(node.right)
 
     inorder(tree)
-    return result[k-1] if k <= len(result) else None
+    return result[k - 1] if k <= len(result) else None
 
-
-    
 
 node_1 = Node(1)
 node_2 = Node(2)
@@ -63,19 +61,19 @@ node_3.left, node_3.right = node_6, node_7
 
 
 print("\nKth Node First Solution\n")
-print(kth_node(node_1, 1)) #4
-print(kth_node(node_1, 2)) #2
-print(kth_node(node_1, 3)) #5
-print(kth_node(node_1, 4)) #1
-print(kth_node(node_1, 5)) #6
-print(kth_node(node_1, 6)) #3
-print(kth_node(node_1, 7)) #7
+print(kth_node(node_1, 1))  # 4
+print(kth_node(node_1, 2))  # 2
+print(kth_node(node_1, 3))  # 5
+print(kth_node(node_1, 4))  # 1
+print(kth_node(node_1, 5))  # 6
+print(kth_node(node_1, 6))  # 3
+print(kth_node(node_1, 7))  # 7
 
 print("\nKth Node Non Optimal Solution\n")
-print(kth_node_2(node_1, 1)) #4
-print(kth_node_2(node_1, 2)) #2
-print(kth_node_2(node_1, 3)) #5
-print(kth_node_2(node_1, 4)) #1
-print(kth_node_2(node_1, 5)) #6
-print(kth_node_2(node_1, 6)) #3
-print(kth_node_2(node_1, 7)) #7
+print(kth_node_2(node_1, 1))  # 4
+print(kth_node_2(node_1, 2))  # 2
+print(kth_node_2(node_1, 3))  # 5
+print(kth_node_2(node_1, 4))  # 1
+print(kth_node_2(node_1, 5))  # 6
+print(kth_node_2(node_1, 6))  # 3
+print(kth_node_2(node_1, 7))  # 7

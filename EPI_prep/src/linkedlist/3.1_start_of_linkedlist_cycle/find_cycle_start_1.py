@@ -1,4 +1,3 @@
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val, self.next = val, next
@@ -17,9 +16,13 @@ def find_cycle_start(head):
 
             pointer_start = head
             while pointer_start is not pointer_advanced:
-                pointer_start, pointer_advanced = pointer_start.next, pointer_advanced.next
-            
+                pointer_start, pointer_advanced = (
+                    pointer_start.next,
+                    pointer_advanced.next,
+                )
+
             return pointer_start
+
 
 def cycle_length(end):
     start = end
@@ -33,7 +36,6 @@ def cycle_length(end):
     return cycle_count
 
 
-
 l1_2 = ListNode(2)
 l1_3 = ListNode(3)
 l1_5 = ListNode(5)
@@ -43,5 +45,4 @@ l1_2.next, l1_3.next = l1_3, l1_5
 l1_5.next, l1_7.next = l1_7, l1_3
 
 
-print(find_cycle_start(l1_2).val) # 3
-
+print(find_cycle_start(l1_2).val)  # 3

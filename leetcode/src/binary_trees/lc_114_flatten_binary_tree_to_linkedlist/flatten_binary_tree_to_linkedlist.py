@@ -2,7 +2,8 @@
 # Time O(n) | Space O(n)
 def flatten(root):
     def flatten_helper(node):
-        if node is None: return
+        if node is None:
+            return
 
         left = flatten_helper(node.left)
         right = flatten_helper(node.right)
@@ -18,17 +19,15 @@ def flatten(root):
         node.right, node.left = left, None
         return node
 
-
     flatten_helper(root)
-
-
 
 
 # Solution 2
 # Time O(n) | Space O(n)
 def flatten(root):
     def flatten_helper(node):
-        if node is None: return
+        if node is None:
+            return
 
         left = flatten_helper(node.left)
         right = flatten_helper(node.right)
@@ -39,5 +38,5 @@ def flatten(root):
 
         tail = right or left or node
         return tail
-    
+
     flatten_helper(root)

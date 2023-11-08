@@ -1,4 +1,3 @@
-
 def two_sum_bst(root, target):
     def two_sum_helper(node):
         if node is None:
@@ -19,7 +18,6 @@ def two_sum_bst(root, target):
             return right
 
         return False
-
 
     value_map = {}
     return two_sum_helper(root)

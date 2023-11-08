@@ -15,8 +15,9 @@ def is_cycle(v, graph):
     for node in indegrees:
         if indegrees[node] == 0:
             sources.append(node)
-    
-    if len(sources) == 0: return True
+
+    if len(sources) == 0:
+        return True
     ordering = []
     while sources:
         curr_node = sources.popleft()
@@ -28,8 +29,9 @@ def is_cycle(v, graph):
 
     return False if len(ordering) == v else True
 
-neighbors = [[1], [2], [3,5], [4], [], [4], [1,7], [8], [6]]
-data = [[1], [2], [3,5], [4], [], [4], [1,7], [8], []]
 
-print(is_cycle(9, neighbors)) #True
-print(is_cycle(9, data)) #False
+neighbors = [[1], [2], [3, 5], [4], [], [4], [1, 7], [8], [6]]
+data = [[1], [2], [3, 5], [4], [], [4], [1, 7], [8], []]
+
+print(is_cycle(9, neighbors))  # True
+print(is_cycle(9, data))  # False

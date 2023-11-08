@@ -1,8 +1,11 @@
 from collections import deque, defaultdict
+
+
 class Node:
     def __init__(self, val):
         self.val = val
         self.left = self.right = None
+
 
 # Time  O(N) + O(WLog W)
 # Where N is the number of nodes in the tree
@@ -12,8 +15,10 @@ class Node:
 # Where N is the number of nodes on a particular level
 # Where W is the number of nodes spread across the with of the tree if we consider the results array
 
+
 def bottomView(root):
-    if not root: return
+    if not root:
+        return
 
     vertical_order = {}
     queue = deque([(root, 0)])
@@ -26,16 +31,15 @@ def bottomView(root):
             vertical_order[x] = node.val
 
             if node.left:
-                queue.append((node.left, x-1))
-            if node.right: 
-                queue.append((node.right, x+1))
+                queue.append((node.left, x - 1))
+            if node.right:
+                queue.append((node.right, x + 1))
 
     result = []
     for key in sorted(vertical_order.keys()):
         result.append(vertical_order[key])
-    
-    return result
 
+    return result
 
 
 node1 = Node(20)
@@ -53,10 +57,10 @@ node2.left, node2.right = node4, node5
 node3.right = node7
 node5.left, node5.right = node8, node9
 
-print(bottomView(node1)) #[5, 10, 3, 14, 25]
+print(bottomView(node1))  # [5, 10, 3, 14, 25]
 
 node3.left = node6
 node5.right = None
 node6.right = node9
 
-print(bottomView(node1)) #[5, 10, 4, 14, 25]
+print(bottomView(node1))  # [5, 10, 4, 14, 25]

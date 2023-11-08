@@ -1,6 +1,6 @@
 from collections import deque
 
- 
+
 # Time O(n) | Space O(n)
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
@@ -8,13 +8,15 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# This approach uses an inorder traversal to enumerate the keys in ascending order, 
-# and return the last k visited nodes. A queue is ideal for storing visited nodes, 
-# since it makes it easy to evict nodes visited more than k steps previously. 
 
-# A drawback of this approach is that it potentially processes many nodes that cannot 
+# This approach uses an inorder traversal to enumerate the keys in ascending order,
+# and return the last k visited nodes. A queue is ideal for storing visited nodes,
+# since it makes it easy to evict nodes visited more than k steps previously.
+
+# A drawback of this approach is that it potentially processes many nodes that cannot
 # possibly be in the result, e.g., if k is small and the left subtree is large.
 # Check k_largest_1.py for the optimal solution
+
 
 def find_k_largest(tree, k):
     elements = deque()
@@ -22,7 +24,7 @@ def find_k_largest(tree, k):
     def inorder(node):
         if node is None:
             return
-        
+
         inorder(node.left)
         elements.appendleft(node.val)
         inorder(node.right)
@@ -35,7 +37,6 @@ def find_k_largest(tree, k):
 
     return result
 
-    
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)
@@ -68,6 +69,6 @@ bst_13.right = bst_15
 bst_6.right = bst_11
 
 
-print(find_k_largest(bst, 3)) # [53, 47, 43]
-print(find_k_largest(bst, 2)) # [53, 47]
-print(find_k_largest(bst, 1)) # [53]
+print(find_k_largest(bst, 3))  # [53, 47, 43]
+print(find_k_largest(bst, 2))  # [53, 47]
+print(find_k_largest(bst, 1))  # [53]

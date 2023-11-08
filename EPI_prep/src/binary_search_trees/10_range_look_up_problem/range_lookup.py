@@ -4,11 +4,13 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 # Time O(m + h) where m is the number of keys in the interval and h is the height of the tree
 # Space O (h)
 def range_lookup(tree, interval):
     start, end = interval[0], interval[1]
     result = []
+
     def range_lookup_helper(node):
         if node is None:
             return
@@ -21,9 +23,10 @@ def range_lookup(tree, interval):
             range_lookup_helper(node.left)
         else:
             range_lookup_helper(node.right)
-    
+
     range_lookup_helper(tree)
     return result
+
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)
@@ -56,7 +59,7 @@ bst_10.left, bst_10.right = bst_13, bst_14
 bst_13.right = bst_15
 bst_6.right = bst_11
 
-print(range_lookup(bst, [16, 31])) #[17, 19, 23, 29, 31]
-print(range_lookup(bst, [31, 53])) #[31, 37, 41, 43, 47, 53]
-print(range_lookup(bst, [2, 5])) #[2, 3, 5]
-print(range_lookup(bst, [19, 29])) #[19, 23, 29]
+print(range_lookup(bst, [16, 31]))  # [17, 19, 23, 29, 31]
+print(range_lookup(bst, [31, 53]))  # [31, 37, 41, 43, 47, 53]
+print(range_lookup(bst, [2, 5]))  # [2, 3, 5]
+print(range_lookup(bst, [19, 29]))  # [19, 23, 29]

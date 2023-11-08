@@ -7,6 +7,7 @@ class TreeNode:
 
 # Time O(n) | Space O(n)
 
+
 def create_list_of_leaves(tree):
     if tree is None:
         return []

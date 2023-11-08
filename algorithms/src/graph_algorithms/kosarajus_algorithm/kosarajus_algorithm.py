@@ -2,8 +2,8 @@ def get_strongly_connected_components(graph):
     stack, visited = [], [0] * len(graph)
     for i in range(len(graph)):
         if visited[i] == 0:
-            top_sort(i , graph, stack, visited)
-    
+            top_sort(i, graph, stack, visited)
+
     transposed = transpose_graph(graph, visited)
 
     result = []
@@ -16,12 +16,14 @@ def get_strongly_connected_components(graph):
 
     return result
 
+
 def top_sort(node, graph, stack, visited):
     visited[node] = 1
     for neighbor in graph[node]:
         if visited[neighbor] == 0:
             top_sort(neighbor, graph, stack, visited)
     stack.append(node)
+
 
 def transpose_graph(graph, visited):
     transpose = [[] for _ in range(len(graph))]
@@ -31,6 +33,7 @@ def transpose_graph(graph, visited):
         for neighbor in graph[i]:
             transpose[neighbor].append(i)
     return transpose
+
 
 def get_components(node, graph, visited, data):
     visited[node] = 1

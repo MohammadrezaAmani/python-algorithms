@@ -10,9 +10,9 @@ class BinaryTree:
     # inserting a node into a binary tree
     # Runtime complexity O(1) Space Complexity O(1)
     def insertNode(self, value):
-        if (self.items is None) and (self.lastUsedIndex+1  == self.maxSize):
+        if (self.items is None) and (self.lastUsedIndex + 1 == self.maxSize):
             return False
-        self.items[self.lastUsedIndex+1] = value
+        self.items[self.lastUsedIndex + 1] = value
         self.lastUsedIndex += 1
         return True
 
@@ -20,26 +20,26 @@ class BinaryTree:
     # Run time complexity O(n) & Space Complexity O(1)
     def search(self, value):
         # if binary tree exists and is not empty
-        # Search for the given value 
+        # Search for the given value
         if (self.items is not None) and (self.lastUsedIndex > 0):
-             for i in range(len(self.items)):
-                 if self.items[i] == value:
-                     return self.items[i]
+            for i in range(len(self.items)):
+                if self.items[i] == value:
+                    return self.items[i]
         return None
 
     # Traversing a tree using preOrderTraversal
-    # Run time complexity O(n) & 
+    # Run time complexity O(n) &
     # Space Complexity O(n) --> because we are using recursion, function calls are kept on the stack
     def preOrderTraversal(self, index):
         if index > self.lastUsedIndex:
             return
-           
+
         print(self.items[index])
-        self.preOrderTraversal(2*index)
-        self.preOrderTraversal((2*index) + 1)
-        
+        self.preOrderTraversal(2 * index)
+        self.preOrderTraversal((2 * index) + 1)
+
     # Traversing a tree using inOrderTraversal
-    # Run time complexity O(n) & 
+    # Run time complexity O(n) &
     # Space Complexity O(n) --> because we are using recursion, function calls are kept on the stack
     def inOrderTraversal(self, index):
         if index > self.lastUsedIndex:
@@ -49,9 +49,8 @@ class BinaryTree:
         print(self.items[index])
         self.inOrderTraversal((2 * index) + 1)
 
-
     # Traversing a tree using postOrderTraversal
-    # Run time complexity O(n) & 
+    # Run time complexity O(n) &
     # Space Complexity O(n) --> because we are using recursion, function calls are kept on the stack
     def postOrderTraversal(self, index):
         if index > self.lastUsedIndex:
@@ -64,9 +63,8 @@ class BinaryTree:
     # Traversing a tree using levelOrderTraversal
     # Run time complexity O(n) & Space Complexity O(1)
     def levelOrderTraversal(self, index):
-        for i in range(index, self.lastUsedIndex+1):
+        for i in range(index, self.lastUsedIndex + 1):
             print(self.items[i])
-
 
     # Deleting a node in binary tree
     # Run time complexity O(n) & Space Complexity O(1)
@@ -75,7 +73,7 @@ class BinaryTree:
             print("Binary Tree is empty")
             return False
         else:
-            for i in range(1, self.lastUsedIndex+1):
+            for i in range(1, self.lastUsedIndex + 1):
                 if self.items[i] == value:
                     self.items[i] = self.items[self.lastUsedIndex]
                     self.items[self.lastUsedIndex] = None
@@ -93,7 +91,6 @@ class BinaryTree:
         self.maxSize = 0
         print("Binary Tree Deleted")
         return True
-
 
 
 newBt = BinaryTree(10)
@@ -121,8 +118,8 @@ print("--- LevelOrder Traversal ---")
 newBt.levelOrderTraversal(1)
 print("--- End of LevelOrder Traversal --- \n\n")
 
-print("Searching for Coffee, Found --> ",newBt.search("Coffee"))
-print("Searching for Scotch, Found --> ",newBt.search("Scotch"), "\n\n")
+print("Searching for Coffee, Found --> ", newBt.search("Coffee"))
+print("Searching for Scotch, Found --> ", newBt.search("Scotch"), "\n\n")
 
 print("--- Deleting Node with Value 'Cold' ---")
 print("Delete Successful? ", newBt.deleteNode("Cold"))

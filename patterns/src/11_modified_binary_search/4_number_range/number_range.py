@@ -1,13 +1,14 @@
 # Time complexity
-# Since, we are reducing the search range by half at every step, 
-# this means that the time complexity of our algorithm will be O(logN) 
+# Since, we are reducing the search range by half at every step,
+# this means that the time complexity of our algorithm will be O(logN)
 # where ‘N’ is the total elements in the given array.
+
 
 # Space complexity
 # The algorithm runs in constant space O(1).
-#Solution 1
+# Solution 1
 def find_range(arr, key):
-    result = [- 1, -1]
+    result = [-1, -1]
     result[0] = binary_search(arr, key, False)
     if result[0] != -1:  # no need to search, if 'key' is not present in the input array
         result[1] = binary_search(arr, key, True)
@@ -33,10 +34,10 @@ def binary_search(arr, key, findMaxIndex):
 
     return keyIndex
 
+
 print(find_range([4, 6, 6, 6, 9], 6))
 print(find_range([1, 3, 8, 10, 15], 10))
 print(find_range([1, 3, 8, 10, 15], 12))
-
 
 
 def find_range_2(arr, key):
@@ -52,8 +53,9 @@ def find_range_2(arr, key):
 
     return [-1, -1]
 
+
 def bin_search(arr, key):
-    start, end  = 0, len(arr) - 1
+    start, end = 0, len(arr) - 1
 
     while start <= end:
         mid = start + (end - start) // 2
@@ -63,7 +65,7 @@ def bin_search(arr, key):
             end = mid - 1
         else:
             start = mid + 1
-    
+
     return -1
 
 

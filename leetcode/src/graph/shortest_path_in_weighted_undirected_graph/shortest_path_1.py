@@ -3,6 +3,7 @@ from heapq import *
 # Time Complexity: O(m * log(n))
 # Space Complexity: O(n)
 
+
 def shortest_path(n, m, edges):
     graph = [[] for _ in range(n)]
     for i in range(m):
@@ -10,7 +11,7 @@ def shortest_path(n, m, edges):
         graph[node1].append([node2, weight])
         graph[node2].append([node1, weight])
 
-    parent, distance = [0] * n, [float('inf')] * n
+    parent, distance = [0] * n, [float("inf")] * n
     parent[0], distance[0] = 0, 0
     min_heap = [(0, 0)]
 
@@ -27,8 +28,8 @@ def shortest_path(n, m, edges):
 
                 heappush(min_heap, (computed_distance, child))
 
-    idx = n-1
-    if distance[idx] == float('inf'):
+    idx = n - 1
+    if distance[idx] == float("inf"):
         return [-1]
 
     path = []
@@ -40,5 +41,6 @@ def shortest_path(n, m, edges):
 
     return path
 
-edges = [[0,1,2], [1,4,5], [1,2,4], [0,3,1], [3,2,3],[2,4,1]]
+
+edges = [[0, 1, 2], [1, 4, 5], [1, 2, 4], [0, 3, 1], [3, 2, 3], [2, 4, 1]]
 print(shortest_path(5, 6, edges))

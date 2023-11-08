@@ -1,5 +1,6 @@
 from heapq import *
 
+
 def find_k_largest_pairs(nums1, nums2, k):
     result = []
     min_heap = []
@@ -21,10 +22,14 @@ def find_k_largest_pairs(nums1, nums2, k):
 
 
 def main():
-    print("Pairs with largest sum are: " +
-        str(find_k_largest_pairs([9, 8, 2], [6, 3, 1], 3)))
-    print("Pairs with largest sum are: " +
-        str(find_k_largest_pairs([5, 2, 1], [2, -1], 3)))
+    print(
+        "Pairs with largest sum are: "
+        + str(find_k_largest_pairs([9, 8, 2], [6, 3, 1], 3))
+    )
+    print(
+        "Pairs with largest sum are: "
+        + str(find_k_largest_pairs([5, 2, 1], [2, -1], 3))
+    )
 
 
 main()

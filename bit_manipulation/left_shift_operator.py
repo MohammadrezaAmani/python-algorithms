@@ -1,13 +1,13 @@
-#Left Shift :
+# Left Shift :
 
-# Denoted as : << 
+# Denoted as : <<
 # Eg: x<<y (x: first operand, y: second operand)
 # Takes two numbers, left shifts the bits of the first operand, the second operand decides the number of places to shift.
-# Or in other words left shifting an integer “x” with an integer “y” 
-# denoted as ‘(x<<y)’ is equivalent to multiplying x with 2^y (2 raised to power y). 
+# Or in other words left shifting an integer “x” with an integer “y”
+# denoted as ‘(x<<y)’ is equivalent to multiplying x with 2^y (2 raised to power y).
 # eg: lets take x=22; which is 00010110 in Binary Form.
-# Now, if “x is left-shifted by 2” 
-# i.e x=x<<2 then N will become x=x*(2^2). 
+# Now, if “x is left-shifted by 2”
+# i.e x=x<<2 then N will become x=x*(2^2).
 # Thus, x=22*(2^2)=88 which can be wriiten as 01011000.
 
 # Leftwise Shift evaluates to x * 2^y
@@ -23,8 +23,8 @@
 # 4. Given 5 << 3  evaluates 5 * 2^3
 # 5. Given 3 << 9  evaluates 3 * 2^9
 
-print(4 << 3) #32 
-print(1 << 2) #4
-print(2 << 2) #8
-print(5 << 3) #40
-print(3 << 9) #1536`
+print(4 << 3)  # 32
+print(1 << 2)  # 4
+print(2 << 2)  # 8
+print(5 << 3)  # 40
+print(3 << 9)  # 1536`

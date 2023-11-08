@@ -1,8 +1,8 @@
-
 class Node:
     def __init__(self, val):
         self.val = val
         self.left = self.right = None
+
 
 def is_symmetric(tree):
     if tree is None:
@@ -12,15 +12,16 @@ def is_symmetric(tree):
         if subtree_0 is None and subtree_1 is None:
             return True
         elif subtree_0 and subtree_1:
-            return (subtree_0.val == subtree_1.val \
-                    and check_symmetric(subtree_0.left, subtree_1.right) \
-                    and check_symmetric(subtree_0.right, subtree_1.left))
+            return (
+                subtree_0.val == subtree_1.val
+                and check_symmetric(subtree_0.left, subtree_1.right)
+                and check_symmetric(subtree_0.right, subtree_1.left)
+            )
 
         # if one subtree is empty and the other is not
         return False
 
     return check_symmetric(tree.left, tree.right)
-
 
 
 node_A = Node(314)

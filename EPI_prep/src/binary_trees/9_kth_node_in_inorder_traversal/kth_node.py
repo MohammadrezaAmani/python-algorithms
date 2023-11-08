@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, val, size = 0):
+    def __init__(self, val, size=0):
         self.val, self.size = val, size
         self.left = self.right = None
 
@@ -15,9 +15,9 @@ def kth_node(tree, k):
                 return tree.val
             else:
                 tree = tree.left
-    
+
     return None
-    
+
 
 node_1 = Node(1, 7)
 node_2 = Node(2, 3)

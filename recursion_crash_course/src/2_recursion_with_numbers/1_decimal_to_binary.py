@@ -1,8 +1,8 @@
-# Basecase 
+# Basecase
 # When the input is equal to zero, we can return our result
 
 # Work
-# During every step: 
+# During every step:
 # We have to find the remainder of the current value when divided by 2
 # And concatenate that remainder to the result
 # Then we half the currrent value and  call the function with the new value
@@ -20,11 +20,13 @@
 def dec_to_binary(decimal):
     return solve_dec_to_binary(decimal, "")
 
+
 def solve_dec_to_binary(decimal, result):
     if decimal == 0:
         return result
-    
+
     result = str(decimal % 2) + result
     return solve_dec_to_binary(decimal // 2, result)
+
 
 print(dec_to_binary(59))

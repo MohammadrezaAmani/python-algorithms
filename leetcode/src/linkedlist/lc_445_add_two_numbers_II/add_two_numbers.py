@@ -17,8 +17,9 @@ def addTwoNumbers(l1, l2):
         carry = curr_sum // 10
         tmp, result = result, ListNode(curr_sum % 10)
         result.next = tmp
-        
+
     return result
+
 
 def create_stack(node):
     curr, stack = node, []

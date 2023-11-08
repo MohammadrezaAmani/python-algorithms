@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def top_sort(v, graph):
     indegrees = {i: 0 for i in range(v)}
 
@@ -12,7 +13,7 @@ def top_sort(v, graph):
     for node in indegrees:
         if indegrees[node] == 0:
             sources.append(node)
-    
+
     ordering = []
     while sources:
         curr_node = sources.popleft()
@@ -24,5 +25,6 @@ def top_sort(v, graph):
 
     return ordering if len(ordering) == v else []
 
-graph = [[], [], [3], [1], [0,1], [0,2]]
+
+graph = [[], [], [3], [1], [0, 1], [0, 2]]
 print(top_sort(6, graph))

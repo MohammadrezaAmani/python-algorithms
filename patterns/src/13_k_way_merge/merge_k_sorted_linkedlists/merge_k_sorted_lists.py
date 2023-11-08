@@ -2,7 +2,6 @@ from __future__ import print_function
 from heapq import *
 
 
-
 class ListNode:
     def __init__(self, value):
         self.value = value
@@ -13,14 +12,15 @@ class ListNode:
 
 
 # Time complexity
-# Since we’ll be going through all the elements of all arrays and 
-# will be removing/adding one element to the heap in each step, 
-# the time complexity of the above algorithm will be O(N*logK), 
+# Since we’ll be going through all the elements of all arrays and
+# will be removing/adding one element to the heap in each step,
+# the time complexity of the above algorithm will be O(N*logK),
 # where ‘N’ is the total number of elements in all the ‘K’ input arrays.
 
 # Space complexity
-# The space complexity will be O(K) because, at any time, 
+# The space complexity will be O(K) because, at any time,
 # our min-heap will be storing one number from all the ‘K’ input arrays.
+
 
 def merge_lists(lists):
     min_heap = []
@@ -32,19 +32,17 @@ def merge_lists(lists):
     result_head, result_tail = None, None
     while min_heap:
         node = heappop(min_heap)
-        
+
         if result_head is None:
             result_head = result_tail = node
         else:
             result_tail.next = node
             result_tail = result_tail.next
-        
+
         if node.next is not None:
             heappush(min_heap, node.next)
-  
 
     return result_head
-
 
 
 def main():
@@ -61,11 +59,10 @@ def main():
     l3.next.next = ListNode(4)
 
     result = merge_lists([l1, l2, l3])
-    print("Here are the elements from the merged list: ", end='')
+    print("Here are the elements from the merged list: ", end="")
     while result != None:
-        print(str(result.value) + " ", end='')
+        print(str(result.value) + " ", end="")
         result = result.next
 
 
 main()
-

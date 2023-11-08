@@ -10,7 +10,7 @@ def tree_diameter(root):
         nonlocal diameter
         if node is None:
             return 0
-        
+
         left = tree_diameter_helper(node.left)
         right = tree_diameter_helper(node.right)
 

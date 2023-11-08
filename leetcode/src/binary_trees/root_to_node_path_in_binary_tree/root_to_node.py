@@ -1,18 +1,18 @@
-
 class Node:
     def __init__(self, val):
         self.val = val
         self.left = self.right = None
 
-def findPath(root, destination):
 
+def findPath(root, destination):
     def solvePath(node, path):
-        if node is None: return False
+        if node is None:
+            return False
 
         path.append(node.val)
         if node == destination:
             return True
-        
+
         if solvePath(node.left, path):
             return True
 

@@ -1,14 +1,16 @@
 # assign HEAP.MAX for a maxHeap
 # if nothing is assigned, then heap is automatically MIN
 
+
 class Heap:
     MIN = "min"
     MAX = "max"
+
     # Time Complexity --> O(1)
     # Space Complexity --> O(n)
-    def __init__(self, size, heapType = MIN):
+    def __init__(self, size, heapType=MIN):
         super().__init__()
-        self.items = (size+1) * [None]
+        self.items = (size + 1) * [None]
         self.heapSize = 0
         self.maxSize = size + 1
         self.heapType = heapType
@@ -17,7 +19,7 @@ class Heap:
     # Space Complexity --> O(1)
     def peek(self):
         if self.heapSize == 0:
-            return 
+            return
         else:
             return self.items[1]
 
@@ -36,7 +38,7 @@ class Heap:
         if self.items is None:
             print("Heap doesn't exist")
         else:
-            for i in range(1, self.heapSize+1):
+            for i in range(1, self.heapSize + 1):
                 print(self.items[i])
 
     def swap(self, index, parentIndex):
@@ -45,10 +47,10 @@ class Heap:
         self.items[parentIndex] = temp
 
     def heapifyInsert(self, index):
-        parentIndex = int(index/2)
+        parentIndex = int(index / 2)
         if index <= 1:
             return
-        
+
         if self.heapType == self.MIN:
             if self.items[index] < self.items[parentIndex]:
                 self.swap(index, parentIndex)
@@ -56,8 +58,7 @@ class Heap:
             if self.items[index] > self.items[parentIndex]:
                 self.swap(index, parentIndex)
 
-        self.heapifyInsert(parentIndex) 
-
+        self.heapifyInsert(parentIndex)
 
     def insertNode(self, nodeValue):
         if self.heapSize + 1 == self.maxSize:
@@ -100,26 +101,26 @@ class Heap:
                     self.swap(index, swapChild)
         self.heapifyExtract(swapChild)
 
-
     def extractNode(self):
         if self.heapSize == 0:
             return
         else:
             # extract first node from tree
             extractedNode = self.items[1]
-            # replace first node with last node 
+            # replace first node with last node
             self.items[1] = self.items[self.heapSize]
             # set last node's position to None
             self.items[self.heapSize] = None
             # reduce size of heap
             self.heapSize -= 1
             # execute heapifyExtract to shuffle everything into the right place
-            self.heapifyExtract( 1)
-            # return the extracted node
+            self.heapifyExtract(1)
+            # return the extracted node
             return extractedNode
 
     def deleteEntireBP(self):
         self.items = None
+
 
 maxHeap = Heap(10, Heap.MIN)
 

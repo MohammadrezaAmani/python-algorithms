@@ -1,8 +1,9 @@
 # Time complexity O(N)
 # The time complexity of the above algorithm is O(N).
 
+
 # Space complexity O(1)
-# Ignoring the space required for storing the duplicates, 
+# Ignoring the space required for storing the duplicates,
 # the algorithm runs in constant space O(1).
 def find_all_duplicates(nums):
     i = 0

@@ -1,6 +1,6 @@
-#methods 1. pop, push, peek, isEmpty, delete
+# methods 1. pop, push, peek, isEmpty, delete
 class Node:
-    def __init__(self, value = None):
+    def __init__(self, value=None):
         super().__init__()
         self.value = value
         self.next = None
@@ -8,14 +8,11 @@ class Node:
     def getNext(self):
         return self.next
 
-
     def getValue(self):
         return self.value
 
 
-
 class LinkedList:
-
     def __init__(self):
         super().__init__()
         self.head = None
@@ -37,7 +34,7 @@ class Stack:
 
     def __str__(self):
         values = [str(x.value) for x in self.linkedList]
-        return '\n'.join(values)
+        return "\n".join(values)
 
     def push(self, value):
         node = Node(value)
@@ -57,7 +54,6 @@ class Stack:
             value = self.linkedList.head.value
             self.linkedList.head = self.linkedList.head.getNext()
             return value
-
 
     def isEmpty(self):
         if self.linkedList.head == None:
@@ -85,13 +81,13 @@ print("is empty? ", stack.isEmpty())
 print([node.value for node in stack.linkedList])
 
 # Testing peek method of stack
-print("PEEK: ", stack.peek()) #6
+print("PEEK: ", stack.peek())  # 6
 
 # Testing pop method of stack
-print("POP: ", stack.pop()) #6
+print("POP: ", stack.pop())  # 6
 
 # Testing peek method of stack again
-print("PEEK: ", stack.peek()) #5
+print("PEEK: ", stack.peek())  # 5
 
 print([node.value for node in stack.linkedList])
 

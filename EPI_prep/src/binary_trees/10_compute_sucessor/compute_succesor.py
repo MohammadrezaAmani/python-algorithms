@@ -1,6 +1,5 @@
-
 # Key Notes
-# For example: 
+# For example:
 #         3
 #      /       \
 #     4         5
@@ -8,11 +7,11 @@
 #   2   9     6   7
 
 # Point 1
-# During an inorder traversal, each node that has a non empty right subtree 
+# During an inorder traversal, each node that has a non empty right subtree
 # has its successor in that subtree.
-# Take the tree, nodes 4, 3, 5 will always have their successor in their right 
+# Take the tree, nodes 4, 3, 5 will always have their successor in their right
 # subtree because they have a non empty right subtree
-# This node is the "left-most" node in that subtree, and can be computed by following 
+# This node is the "left-most" node in that subtree, and can be computed by following
 # left children exclusively, stopping when there is no left child to continue from.
 
 # Point 2
@@ -22,7 +21,7 @@
 
 # Point 3
 # If the node is its parent's right child, then it means  we have already visited the parent.
-# We can determine the next visited node by iteratively following parents, 
+# We can determine the next visited node by iteratively following parents,
 # stopping when we move up from a left child
 # So taking the tree above, nodes: 9 and 7 will have their up the tree as we iteratively follow the parents
 
@@ -32,20 +31,21 @@ class Node:
         self.val = val
         self.left = self.right = self.parent = None
 
+
 def compute_successor(node):
     if node:
         if node.right:
             node = node.right
             while node.left:
                 node = node.left
-            
+
             return node
-        
+
         while node.parent and node.parent.right is node:
             node = node.parent
 
         return node.parent
-    
+
     return None
 
 
@@ -66,10 +66,10 @@ node_4.parent, node_5.parent = node_2, node_2
 node_6.parent, node_7.parent = node_3, node_3
 
 
-print(compute_successor(node_1)) # 6
-print(compute_successor(node_2)) # 5
-print(compute_successor(node_3)) # 7
-print(compute_successor(node_4)) # 2
-print(compute_successor(node_5)) # 1
-print(compute_successor(node_6)) # 3
-print(compute_successor(node_7)) # None
+print(compute_successor(node_1))  # 6
+print(compute_successor(node_2))  # 5
+print(compute_successor(node_3))  # 7
+print(compute_successor(node_4))  # 2
+print(compute_successor(node_5))  # 1
+print(compute_successor(node_6))  # 3
+print(compute_successor(node_7))  # None

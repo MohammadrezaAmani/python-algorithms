@@ -2,6 +2,7 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val, self.next = val, next
 
+
 # Time O(n) | Space O(1)
 def remove_duplicates(L):
     it = L
@@ -14,6 +15,7 @@ def remove_duplicates(L):
         it = next_distinct
 
     return L
+
 
 l1_2 = ListNode(2)
 l1_5 = ListNode(5)
@@ -28,11 +30,11 @@ def print_node(node):
     while node:
         print(node.val, end=" ")
         node = node.next
-    
+
     print("\n")
 
 
 # Before Removing Duplicates
 print_node(l1_2)
 
-print_node(remove_duplicates(l1_2)) # [2, 5, 9]
+print_node(remove_duplicates(l1_2))  # [2, 5, 9]

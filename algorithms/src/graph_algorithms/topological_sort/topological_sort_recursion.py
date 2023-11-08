@@ -1,32 +1,32 @@
 from collections import defaultdict
 
+
 class Graph(object):
     def __init__(self, num_of_vertices):
         self.graph = defaultdict(list)
-            
-    
+
     def add_edge(self, vertex, edge):
         self.graph[vertex].append(edge)
-        
+
     def topological_sort_util(self, vertex, visited, stack):
-        visited.append(vertex)       
-        
+        visited.append(vertex)
+
         for v in self.graph[vertex]:
             if not v in visited:
-                self.topological_sort_util(v, visited, stack)  
-                
+                self.topological_sort_util(v, visited, stack)
+
         stack.insert(0, vertex)
-        
+
     def topological_sort(self):
         visited = []
         stack = []
-        
+
         for vertex in list(self.graph):
             if vertex not in visited:
                 visited.append(vertex)
                 self.topological_sort_util(vertex, visited, stack)
-        
-        return stack 
+
+        return stack
 
 
 graph = Graph(8)

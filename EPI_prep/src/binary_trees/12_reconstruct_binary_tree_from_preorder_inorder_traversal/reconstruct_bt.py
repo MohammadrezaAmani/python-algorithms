@@ -4,20 +4,23 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# For example: 
+
+# For example:
 #         1
 #      /       \
 #     2         3
 #    / \       / \
 #   4   5     6   7
 
+
 def reconstruct(preorder, inorder):
     node_to_inorder_idx = {data: i for i, data in enumerate(inorder)}
+
     # Builds the subtree with preorder[preorder_start:preorder_end] and
     # inorder[inorder_start:inorder_end].
-    def binary_tree_from_preorder_inorder_helper(preorder_start, preorder_end,
-                                                 inorder_start, inorder_end):
-                                                 
+    def binary_tree_from_preorder_inorder_helper(
+        preorder_start, preorder_end, inorder_start, inorder_end
+    ):
         if preorder_end <= preorder_start or inorder_end <= inorder_start:
             return None
 
@@ -26,22 +29,30 @@ def reconstruct(preorder, inorder):
 
         node_val = preorder[preorder_start]
 
-         # Recursively builds the left subtree.
-        left_subtree =  binary_tree_from_preorder_inorder_helper(
-                preorder_start + 1, preorder_start + 1 + left_subtree_size,
-                inorder_start, root_inorder_idx)
+        # Recursively builds the left subtree.
+        left_subtree = binary_tree_from_preorder_inorder_helper(
+            preorder_start + 1,
+            preorder_start + 1 + left_subtree_size,
+            inorder_start,
+            root_inorder_idx,
+        )
 
         # Recursively builds the right subtree.
         right_subtree = binary_tree_from_preorder_inorder_helper(
-                preorder_start + 1 + left_subtree_size, preorder_end,
-                root_inorder_idx + 1, inorder_end)
+            preorder_start + 1 + left_subtree_size,
+            preorder_end,
+            root_inorder_idx + 1,
+            inorder_end,
+        )
 
         return TreeNode(node_val, left_subtree, right_subtree)
 
-    return binary_tree_from_preorder_inorder_helper(preorder_start=0,
-                                                    preorder_end=len(preorder),
-                                                    inorder_start=0,
-                                                    inorder_end=len(inorder))
+    return binary_tree_from_preorder_inorder_helper(
+        preorder_start=0,
+        preorder_end=len(preorder),
+        inorder_start=0,
+        inorder_end=len(inorder),
+    )
 
 
 node_1 = TreeNode(1)
@@ -58,8 +69,10 @@ node_3.left, node_3.right = node_6, node_7
 
 tree = reconstruct([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7])
 
+
 def preorder_traversal(node):
     result = []
+
     def preorder(node):
         if node is None:
             return
@@ -67,12 +80,14 @@ def preorder_traversal(node):
         result.append(node.val)
         preorder(node.left)
         preorder(node.right)
-    
+
     preorder(node)
     return result
 
+
 def inorder_traversal(node):
     result = []
+
     def inorder(node):
         if node is None:
             return
@@ -80,9 +95,10 @@ def inorder_traversal(node):
         inorder(node.left)
         result.append(node.val)
         inorder(node.right)
-    
+
     inorder(node)
     return result
 
-print(preorder_traversal(tree)) # [1, 2, 4, 5, 3, 6, 7]
-print(inorder_traversal(tree)) # [4, 2, 5, 1, 6, 3, 7]
+
+print(preorder_traversal(tree))  # [1, 2, 4, 5, 3, 6, 7]
+print(inorder_traversal(tree))  # [4, 2, 5, 1, 6, 3, 7]

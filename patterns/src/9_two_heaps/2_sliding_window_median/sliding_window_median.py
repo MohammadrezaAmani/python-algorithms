@@ -2,23 +2,24 @@ from heapq import *
 import heapq
 
 # Time complexity
-# The time complexity of our algorithm is O(N*K) where ‘N’ is the total number of elements 
-# in the input array and ‘K’ is the size of the sliding window. 
-# This is due to the fact that we are going through all the ‘N’ numbers and, 
+# The time complexity of our algorithm is O(N*K) where ‘N’ is the total number of elements
+# in the input array and ‘K’ is the size of the sliding window.
+# This is due to the fact that we are going through all the ‘N’ numbers and,
 # while doing so, we are doing two things:
 
 # Inserting/removing numbers from heaps of size ‘K’. This will take O(logK)
-# Removing the element going out of the sliding window. This will take O(K) 
+# Removing the element going out of the sliding window. This will take O(K)
 # as we will be searching this element in an array of size ‘K’ (i.e., a heap).
 
-# Space complexity 
-# Ignoring the space needed for the output array, the space complexity will be O(K) because, 
+# Space complexity
+# Ignoring the space needed for the output array, the space complexity will be O(K) because,
 # at any time, we will be storing all the numbers within the sliding window.
+
 
 class SlidingWindowMedian:
     def __init__(self):
         self.max_heap, self.min_heap = [], []
-        
+
     def find_sliding_window_median(self, nums, k):
         result = [0.0 for x in range(len(nums) - k + 1)]
         for i in range(0, len(nums)):
@@ -64,16 +65,12 @@ class SlidingWindowMedian:
         if ind < len(heap):
             heapq._siftup(heap, ind)
             heapq._siftdown(heap, 0, ind)
-            
-            
+
+
 slidingWindowMedian = SlidingWindowMedian()
-result = slidingWindowMedian.find_sliding_window_median(
-[1, 2, -1, 3, 5], 2)
+result = slidingWindowMedian.find_sliding_window_median([1, 2, -1, 3, 5], 2)
 print("Sliding window medians are: " + str(result))
 
 slidingWindowMedian = SlidingWindowMedian()
-result = slidingWindowMedian.find_sliding_window_median(
-[1, 2, -1, 3, 5], 3)
+result = slidingWindowMedian.find_sliding_window_median([1, 2, -1, 3, 5], 3)
 print("Sliding window medians are: " + str(result))
-
-

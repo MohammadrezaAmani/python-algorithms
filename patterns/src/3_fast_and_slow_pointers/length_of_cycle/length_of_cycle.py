@@ -4,25 +4,26 @@ class Node:
         self.next = next
 
 
-#Time Complexity
-#The time complexity of our algorithm will be O(N) 
-#where ‘N’ is the total number of nodes in the LinkedList.
+# Time Complexity
+# The time complexity of our algorithm will be O(N)
+# where ‘N’ is the total number of nodes in the LinkedList.
 
-#Space Complexity
-#The algorithm runs in constant space O(1).        
+
+# Space Complexity
+# The algorithm runs in constant space O(1).
 def find_cycle_length(head):
     fast, slow = head, head
-    
+
     while fast is not None and fast.next is not None:
         fast = fast.next.next
         slow = slow.next
-        
+
         if fast == slow:
             return calculate_cycle_length(slow)
-    
+
     return 0
-    
-    
+
+
 def calculate_cycle_length(slow):
     current = slow
     cycle_length = 0
@@ -31,8 +32,9 @@ def calculate_cycle_length(slow):
         cycle_length += 1
         if current == slow:
             break
-    
+
     return cycle_length
+
 
 head = Node(1)
 head.next = Node(2)

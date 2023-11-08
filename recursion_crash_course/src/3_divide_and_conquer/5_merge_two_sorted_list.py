@@ -10,9 +10,12 @@ def printList(node):
             print(curr_node.val)
             curr_node = curr_node.next
 
+
 def merge(A, B):
-    if A is None: return B
-    if B is None: return A
+    if A is None:
+        return B
+    if B is None:
+        return A
 
     if A.val <= B.val:
         A.next = merge(A.next, B)

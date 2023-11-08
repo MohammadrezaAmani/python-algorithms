@@ -1,4 +1,5 @@
-#methods 1. pop, push, peek, isEmpty, delete
+# methods 1. pop, push, peek, isEmpty, delete
+
 
 class Stack:
     def __init__(self):
@@ -8,8 +9,8 @@ class Stack:
     def __str__(self):
         values = self.list.reverse()
         values = [str(x) for x in self.list]
-        return '\n'.join(values)
-        
+        return "\n".join(values)
+
     def push(self, value):
         self.list.append(value)
 
@@ -21,12 +22,12 @@ class Stack:
         if not self.isEmpty():
             return self.list[-1]
 
-
     def isEmpty(self):
         return self.list == []
 
     def delete(self):
         self.list = None
+
 
 stack = Stack()
 

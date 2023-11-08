@@ -1,11 +1,11 @@
 # return the sum of the subarray with the maximum sum
 def kadanes_algorithm(array):
     max_at_current_index, max_so_far = array[0], array[0]
-    
+
     for num in array[1:]:
         max_at_current_index = max(num, max_at_current_index + num)
         max_so_far = max(max_so_far, max_at_current_index)
-    
+
     return max_so_far
 
 
@@ -13,19 +13,18 @@ def kadanes_algorithm(array):
 def kadanes_algorithm_2(array):
     max_at_current_index, max_so_far = array[0], array[0]
     start_idx, end_idx = 0, 0
-    
+
     for i in range(1, len(array)):
         curr_sum = max_at_current_index + array[i]
         if array[i] > curr_sum and array[i] > max_so_far:
             start_idx = i
         max_at_current_index = max(array[i], curr_sum)
-        
+
         if max_so_far < max_at_current_index:
             end_idx = i
         max_so_far = max(max_so_far, max_at_current_index)
-    
-    return array[start_idx: end_idx+1]
-    
+
+    return array[start_idx : end_idx + 1]
 
 
 print("Maximum Sum SubArray")

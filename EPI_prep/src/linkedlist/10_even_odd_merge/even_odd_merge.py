@@ -2,14 +2,15 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val, self.next = val, next
 
+
 # Time O(n) | Space O(1)
 def even_odd_merge(L):
     if not L:
         return L
-        
+
     even_num_sentinel = even_num_it = ListNode(0)
     odd_num_sentinel = odd_num_it = ListNode(0)
-    it  = L 
+    it = L
     while it:
         if it.val % 2 == 0:
             even_num_it.next = it
@@ -23,6 +24,7 @@ def even_odd_merge(L):
     odd_num_it.next = None
     even_num_it.next = odd_num_sentinel.next
     return even_num_sentinel.next
+
 
 head = ListNode(0)
 node_1 = ListNode(1)
@@ -40,7 +42,7 @@ def print_node(node):
     while node:
         print(node.val, end=" ")
         node = node.next
-    
+
     print("\n")
 
 
@@ -48,4 +50,4 @@ def print_node(node):
 print_node(head)
 
 # After Merge
-print_node(even_odd_merge(head)) # [0,2,4,6,1,3,5]
+print_node(even_odd_merge(head))  # [0,2,4,6,1,3,5]

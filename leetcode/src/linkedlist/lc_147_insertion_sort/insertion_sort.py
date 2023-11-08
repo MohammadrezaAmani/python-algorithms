@@ -5,7 +5,6 @@ class ListNode:
         self.next = next
 
 
-
 def insertionSortList(head):
     sentinel, curr = ListNode(), head
 
@@ -13,11 +12,11 @@ def insertionSortList(head):
         prev = sentinel
         while prev.next and curr.val >= prev.next.val:
             prev = prev.next
-        
+
         next_node = curr.next
         curr.next = prev.next
         prev.next = curr
 
         curr = next_node
-    
+
     return sentinel.next

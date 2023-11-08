@@ -3,6 +3,7 @@ class Node:
         self.val = val
         self.left = self.right = self.parent = None
 
+
 # There are parts of this function
 # 1. When we are traversing down the tree
 # 2. When we are traversing back up the tree
@@ -11,7 +12,7 @@ class Node:
 # For this to happen we need to variables: prev & next
 # As their names suggest at everypoint in time prev will point to where the tree has previously been
 # And next will point to the next node we want to visit, this could be a left child, right child or parent(when traversing back up)
-# For example: 
+# For example:
 #         1
 #      /       \
 #     2         3
@@ -42,9 +43,9 @@ def inorder_traversal(tree):
             next = tree.right or tree.parent
         else:
             next = tree.parent
-        
+
         prev, tree = tree, next
-    
+
     return result
 
 

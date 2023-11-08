@@ -1,11 +1,12 @@
 # Best Case: Time O(n) | Space O(h)
-# 
+#
 # Worst Case: Time O(n) | Space O(n)
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 def find_first_greater_than_than_k(tree, k):
     subtree, first_so_far = tree, None
@@ -17,8 +18,6 @@ def find_first_greater_than_than_k(tree, k):
 
     return first_so_far
 
-
-    
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)
@@ -51,6 +50,6 @@ bst_13.right = bst_15
 bst_6.right = bst_11
 
 
-print(find_first_greater_than_than_k(bst, 2).val) # 3
-print(find_first_greater_than_than_k(bst, 23).val) # 29
-print(find_first_greater_than_than_k(bst, 53)) # None
+print(find_first_greater_than_than_k(bst, 2).val)  # 3
+print(find_first_greater_than_than_k(bst, 23).val)  # 29
+print(find_first_greater_than_than_k(bst, 53))  # None

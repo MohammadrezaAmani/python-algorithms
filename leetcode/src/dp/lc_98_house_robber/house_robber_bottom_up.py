@@ -6,14 +6,15 @@ def house_robber(nums):
     dp[0] = nums[0]
 
     for i in range(1, n):
-        rob = nums[i] + (dp[i-2] if i > 1 else 0)
-        dont_rob = 0 + dp[i-1]
+        rob = nums[i] + (dp[i - 2] if i > 1 else 0)
+        dont_rob = 0 + dp[i - 1]
         dp[i] = max(rob, dont_rob)
-    
-    return dp[n-1]
 
-print(house_robber([2,1,4,9]))
-print(house_robber([1,4,3,4,5]))
+    return dp[n - 1]
+
+
+print(house_robber([2, 1, 4, 9]))
+print(house_robber([1, 4, 3, 4, 5]))
 print("\n")
 
 
@@ -29,9 +30,10 @@ def house_robber_space_optimization(nums):
         dont_rob = 0 + prev
         curr = max(rob, dont_rob)
         prev, prev_2 = curr, prev
-    
+
     return prev
 
-print(house_robber_space_optimization([2,1,4,9]))
-print(house_robber_space_optimization([1,4,3,4,5]))
-print(house_robber_space_optimization([1,2]))
+
+print(house_robber_space_optimization([2, 1, 4, 9]))
+print(house_robber_space_optimization([1, 4, 3, 4, 5]))
+print(house_robber_space_optimization([1, 2]))

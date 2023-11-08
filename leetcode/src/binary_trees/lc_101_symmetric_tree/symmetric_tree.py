@@ -9,20 +9,18 @@ def is_symmetric(root):
         if subtree1 is None and subtree2 is None:
             return True
         elif subtree1 and subtree2:
-            return subtree1.val == subtree2.val and \
-                is_symmtric_helper(subtree1.left, subtree2.right) and \
-                is_symmtric_helper(subtree1.right, subtree2.left)
-        
+            return (
+                subtree1.val == subtree2.val
+                and is_symmtric_helper(subtree1.left, subtree2.right)
+                and is_symmtric_helper(subtree1.right, subtree2.left)
+            )
+
         return False
 
     if root:
         return is_symmtric_helper(root.left, root.right)
-    
+
     return False
-
-
-
-
 
 
 node_A = Node(314)

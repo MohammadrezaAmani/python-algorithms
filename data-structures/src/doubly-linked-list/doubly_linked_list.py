@@ -1,6 +1,5 @@
 class Node:
-
-    def __init__(self, value = None):
+    def __init__(self, value=None):
         super().__init__()
         self.value = value
         self.prev = None
@@ -17,13 +16,12 @@ class Node:
 
     def setNext(self, node):
         self.next = node
-    
+
     def setPrev(self, node):
         self.prev = node
 
 
 class DoublyLinkedList:
-
     def __init__(self):
         super().__init__()
         self.head = None
@@ -42,7 +40,7 @@ class DoublyLinkedList:
 
         if self.head is not None:
             self.head.prev = newNode
-        
+
         self.head = newNode
 
     def pushValue(self, value):
@@ -53,10 +51,10 @@ class DoublyLinkedList:
         newNode.next = self.head
         newNode.prev = None
 
-        # 4. change prev of head node to new node 
+        # 4. change prev of head node to new node
         if self.head is not None:
             self.head.prev = newNode
-        
+
         # 5. move the head to point to the new node
         self.head = newNode
 
@@ -77,14 +75,14 @@ class DoublyLinkedList:
 
     def append(self, value):
         newNode = Node(value)
-       
+
         if self.head == None:
             self.head = newNode
         else:
             current = self.head
             while current:
-                if(current.next == None):
-                    break;
+                if current.next == None:
+                    break
                 else:
                     current = current.getNext()
 
@@ -98,7 +96,7 @@ class DoublyLinkedList:
         prevNode.next = newNode
 
     def search(self, value):
-        if(self.head == None):
+        if self.head == None:
             print("Doubly Linked List is empty")
             return
         current = self.head
@@ -106,11 +104,11 @@ class DoublyLinkedList:
         while current:
             if current.value == value:
                 found = True
-                break;
+                break
 
             if current.next == None:
-                break;
-            
+                break
+
             current = current.next
         if found:
             return current
@@ -122,7 +120,7 @@ class DoublyLinkedList:
         if self.head == None:
             print("Can't delete value from a Linked List that is already empty")
             return False
-        
+
         current = self.head
         prevNode = self.head
         found = False
@@ -133,10 +131,10 @@ class DoublyLinkedList:
                 break
             elif current.next == None:
                 break
-            
+
             prevNode = current
             current = current.getNext()
-        
+
         if found:
             prevNode.next = current.getNext()
             return True
@@ -144,13 +142,13 @@ class DoublyLinkedList:
         print("Value does not exist in the Linked List")
         return False
 
-
-
     def deleteDLL(self):
         if self.head == None:
             print("Doubly Linked List is already empty")
         else:
             self.head = None
+
+
 doublyLinkedList = DoublyLinkedList()
 
 # Push Value to the beginining of DoublyLinkedList

@@ -4,12 +4,13 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 # Solution 1
 # Time O(1) | Space O(1)
 
 
 # Goal : delete node 2.
-		
+
 # 1  ->   2 -> 3       -> 4
 #         ^    ^
 #         |    |
@@ -20,18 +21,18 @@ class ListNode:
 #         ^    ^           ^
 #         |    |           |
 #         node  node.next   node.next.next
-        
+
+
 #     #step two: change the next pointer to point to node.next.next
 #     1  ->  3   ->          4
 #         ^    ^           ^
 #         |    |           |
 #         node  node.next   node.next.next
-# Result    
+# Result
 # 1 ->3 ->4
 def deleteNode(node):
     node.val = node.next.val
     node.next = node.next.next
-
 
 
 # Solution 2
@@ -41,5 +42,5 @@ def deleteNode(node):
         node.val = node.next.val
         if node.next and node.next.next is None:
             node.next = None
-        
+
         node = node.next

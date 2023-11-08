@@ -1,16 +1,16 @@
 # time complexity O(2^n)
 # The time complexity of the above algorithm is exponential O(2^n)
-# as we are making two recursive calls in the same function. 
+# as we are making two recursive calls in the same function.
 
 # space complexity O(n)
 # The space complexity is O(n) which is used to store the recursion stack.
 
+
 def calculate_fib(n):
     if n < 2:
         return n
-    
-    return calculate_fib(n-1) + calculate_fib(n-2)
 
+    return calculate_fib(n - 1) + calculate_fib(n - 2)
 
 
 # Calculate Fibonacci with memoization
@@ -18,17 +18,16 @@ def calc_fib(n):
     dp = [-1 for x in range(n + 1)]
     return calc_fib_memoize(n, dp)
 
+
 def calc_fib_memoize(n, dp):
     if n < 2:
         return n
-    
+
     if dp[n] != -1:
         return dp[n]
-    
-    dp[n] = calc_fib_memoize(n-1, dp) + calc_fib_memoize(n-2, dp)
+
+    dp[n] = calc_fib_memoize(n - 1, dp) + calc_fib_memoize(n - 2, dp)
     return dp[n]
-
-
 
 
 print("Recursive Solution Without Memoization")

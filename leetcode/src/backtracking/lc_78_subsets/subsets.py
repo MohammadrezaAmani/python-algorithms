@@ -10,17 +10,19 @@ def subsets(nums):
 
     return subsets
 
+
 def subsets_recursive(nums):
     result = []
     gen_subsets(0, nums, [], result)
 
     return result
 
+
 def gen_subsets(idx, nums, data, result):
     if idx >= len(nums):
         result.append(list(data))
         return
-    
+
     data.append(nums[idx])
     gen_subsets(idx + 1, nums, data, result)
 

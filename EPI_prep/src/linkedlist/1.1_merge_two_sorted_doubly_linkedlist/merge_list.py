@@ -15,12 +15,11 @@ def merge_two_sorted_lists(A, B):
         else:
             iter.next, B.prev = B, iter
             B = B.next
-        
+
         iter = iter.next
-    
+
     iter.next = A or B
     return sentinel.next
-
 
 
 l1_2 = ListNode(2)
@@ -32,7 +31,7 @@ l2_3 = ListNode(3)
 l2_11 = ListNode(11)
 l2_3.next, l2_11.prev = l2_11, l2_3
 
-result = merge_two_sorted_lists(l1_2, l2_3) # [2,3,5,7,11]
+result = merge_two_sorted_lists(l1_2, l2_3)  # [2,3,5,7,11]
 
 while result:
     print(result.val, end=" ")

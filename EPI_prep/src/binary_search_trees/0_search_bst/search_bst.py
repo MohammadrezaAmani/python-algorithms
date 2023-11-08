@@ -4,6 +4,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 def search_bst(tree, key):
     if tree:
         if tree.val == key:

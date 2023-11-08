@@ -3,8 +3,8 @@
 # In this case, both inputs passes as a palindrome
 
 # Work
-# The least amount of work we can do is to compare the characters 
-# at the first and last position of the string. 
+# The least amount of work we can do is to compare the characters
+# at the first and last position of the string.
 # If they are equal then we can call the function again
 # But if they are not then we can return false
 
@@ -21,18 +21,19 @@
 # | "aceca"        --> return true
 # | "racecar"      --> return true
 
+
 def is_palindrome(s):
     if len(s) == 0 or len(s) == 1:
         return True
-    
+
     last_char_idx = len(s) - 1
     if s[0] == s[last_char_idx]:
-        return is_palindrome(s[1 : last_char_idx])
-    
+        return is_palindrome(s[1:last_char_idx])
+
     return False
 
 
-print(is_palindrome("kayak")) # True
-print(is_palindrome("racecar")) # True
-print(is_palindrome("bollocks")) # False
-print(is_palindrome("madam")) # True
+print(is_palindrome("kayak"))  # True
+print(is_palindrome("racecar"))  # True
+print(is_palindrome("bollocks"))  # False
+print(is_palindrome("madam"))  # True

@@ -4,12 +4,14 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 def reconstruct_bst(preorder_sequence):
     root_idx = [0]
+
     def reconstruct_bst_helper(lower_bound, upper_bound):
         if root_idx[0] == len(preorder_sequence):
             return None
-        
+
         root_value = preorder_sequence[root_idx[0]]
 
         if not (lower_bound <= root_value <= upper_bound):
@@ -21,7 +23,7 @@ def reconstruct_bst(preorder_sequence):
 
         return TreeNode(root_value, left_tree, right_tree)
 
-    return reconstruct_bst_helper(float('-inf'), float('inf'))
+    return reconstruct_bst_helper(float("-inf"), float("inf"))
 
 
 def preorder_traversal(node):
@@ -32,5 +34,6 @@ def preorder_traversal(node):
     preorder_traversal(node.left)
     preorder_traversal(node.right)
 
+
 node = reconstruct_bst([43, 23, 37, 29, 31, 41, 47, 53])
-print(preorder_traversal(node)) #[43, 23, 37, 29, 31, 41, 47, 53]
+print(preorder_traversal(node))  # [43, 23, 37, 29, 31, 41, 47, 53]

@@ -1,7 +1,8 @@
 def recover_bst(root):
     def recover_bst_helper(node):
         nonlocal prev, first, middle, last
-        if not node: return
+        if not node:
+            return
 
         recover_bst_helper(node.left)
         if prev and prev.val > node.val:

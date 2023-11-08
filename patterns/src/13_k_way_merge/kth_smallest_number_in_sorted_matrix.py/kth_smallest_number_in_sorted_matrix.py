@@ -1,15 +1,16 @@
 from heapq import *
 
 # Time complexity
-# First, we inserted at most ‘K’ or one element from each of the ‘N’ rows, 
-# which will take O(min(K, N)). Then we went through at most ‘K’ elements in the 
-# matrix and remove/add one element in the heap in each step. 
-# As we can’t have more than ‘N’ elements in the heap in any condition, 
+# First, we inserted at most ‘K’ or one element from each of the ‘N’ rows,
+# which will take O(min(K, N)). Then we went through at most ‘K’ elements in the
+# matrix and remove/add one element in the heap in each step.
+# As we can’t have more than ‘N’ elements in the heap in any condition,
 # therefore, the overall time complexity of the above algorithm will be O(min(K, N) + K*logN).
 
 # Space complexity
-# The space complexity will be O(N) because, in the worst case, 
+# The space complexity will be O(N) because, in the worst case,
 # our min-heap will be storing one number from each of the ‘N’ rows.
+
 
 def find_Kth_smallest(matrix, k):
     number = -1
@@ -36,8 +37,10 @@ def find_Kth_smallest(matrix, k):
 
 
 def main():
-    print("Kth smallest number is: " +
-        str(find_Kth_smallest([[2, 6, 8], [3, 7, 10], [5, 8, 11]], 5)))
+    print(
+        "Kth smallest number is: "
+        + str(find_Kth_smallest([[2, 6, 8], [3, 7, 10], [5, 8, 11]], 5))
+    )
 
 
 main()

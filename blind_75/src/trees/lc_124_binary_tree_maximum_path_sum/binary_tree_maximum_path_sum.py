@@ -1,7 +1,8 @@
 def max_path_sum(root):
     def max_path_helper(node):
         nonlocal max_sum
-        if not node: return 0
+        if not node:
+            return 0
 
         left = max_path_helper(node.left)
         right = max_path_helper(node.right)
@@ -12,7 +13,7 @@ def max_path_sum(root):
 
         return max(node.val, left_sum, right_sum)
 
-    max_sum = float('-inf')
+    max_sum = float("-inf")
     max_path_helper(root)
 
     return max_sum

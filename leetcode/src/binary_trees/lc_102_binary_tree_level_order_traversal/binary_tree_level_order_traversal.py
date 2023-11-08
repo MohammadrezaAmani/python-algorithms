@@ -1,9 +1,10 @@
 from collections import deque
 
+
 def level_order_traversal(root):
     if not root:
         return []
-        
+
     result = []
     queue = deque([root])
     while queue:
@@ -15,7 +16,7 @@ def level_order_traversal(root):
                 queue.append(curr_node.left)
             if curr_node.right:
                 queue.append(curr_node.right)
-                
+
         result.append(data)
-    
+
     return result

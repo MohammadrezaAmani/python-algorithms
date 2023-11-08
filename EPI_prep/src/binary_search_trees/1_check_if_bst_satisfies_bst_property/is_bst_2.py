@@ -1,43 +1,49 @@
 from collections import namedtuple, deque
 
+
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+
 # The problem with the first solution (is_bst.py) is we have to traverse the entire left subtree
 # before we traverse the right subtree. So if the node violating the BST is in the right subtree
 # we have to finish traversing the left subtree befor we check the right subtree
 
 # But if use the BFS approach, we check if every level to confirm whether each node is following the BST property
-# If not we are able to break early whether the node is on the right subtree. Hence we are able to save some time 
+# If not we are able to break early whether the node is on the right subtree. Hence we are able to save some time
 
- 
+
 # Best Case: Time O(n) | Space O(h)
-# 
+#
 # Worst Case: Time O(n) | Space O(n)
 def is_bst_valid(tree):
     if tree:
-        QueueEntry = namedtuple('QueueEntry', ('node', 'lower', 'upper'))
+        QueueEntry = namedtuple("QueueEntry", ("node", "lower", "upper"))
 
-        bfs_queue = deque([QueueEntry(tree, float('-inf'), float('inf'))])
+        bfs_queue = deque([QueueEntry(tree, float("-inf"), float("inf"))])
 
         while bfs_queue:
             curr_node = bfs_queue.popleft()
-            if not(curr_node.lower <= curr_node.node.val <= curr_node.upper):
+            if not (curr_node.lower <= curr_node.node.val <= curr_node.upper):
                 return False
 
             if curr_node.node.left:
-                bfs_queue.append(QueueEntry(curr_node.node.left, curr_node.lower, curr_node.node.val))
-            
+                bfs_queue.append(
+                    QueueEntry(curr_node.node.left, curr_node.lower, curr_node.node.val)
+                )
+
             if curr_node.node.right:
-                bfs_queue.append(QueueEntry(curr_node.node.right, curr_node.node.val, curr_node.upper))
-    
+                bfs_queue.append(
+                    QueueEntry(
+                        curr_node.node.right, curr_node.node.val, curr_node.upper
+                    )
+                )
+
     return True
 
-
-    
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)

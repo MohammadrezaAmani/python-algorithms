@@ -1,8 +1,9 @@
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node" = None, random: "Node" = None):
         self.val = int(x)
         self.next = next
         self.random = random
+
 
 def copyRandomList(head):
     clone = {None: None}
@@ -10,7 +11,7 @@ def copyRandomList(head):
     while node:
         clone[node] = Node(node.val)
         node = node.next
-    
+
     node = head
     while node:
         copy = clone[node]

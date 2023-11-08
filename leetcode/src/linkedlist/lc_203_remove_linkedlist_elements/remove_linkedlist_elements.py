@@ -4,9 +4,11 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 # Solution 1
 def removeElements(head, val):
-    if not head: return head
+    if not head:
+        return head
     sentinel = prev = ListNode(0, head)
     curr = head
 
@@ -16,13 +18,14 @@ def removeElements(head, val):
         else:
             prev = prev.next
         curr = curr.next
-    
+
     return sentinel.next
 
 
 # Solution 2
 def removeElements2(head, val):
-    if not head: return head
+    if not head:
+        return head
     curr = head
     sentinel = prev = ListNode()
 
@@ -31,5 +34,5 @@ def removeElements2(head, val):
             prev.next = ListNode(curr.val)
             prev = prev.next
         curr = curr.next
-    
+
     return sentinel.next

@@ -8,7 +8,7 @@ class Queue:
 
     def __str__(self):
         values = [str(x) for x in self.items]
-        return ' '.join(values)
+        return " ".join(values)
 
     def enqueue(self, value):
         if not self.isFull():
@@ -19,7 +19,7 @@ class Queue:
             else:
                 # Increase end by 1 and use it as index for setting new value
                 self.end += 1
-                # Check if it is the first element being enqueued 
+                # Check if it is the first element being enqueued
                 # If it is, set start to 0
                 if self.start == -1:
                     self.start = 0
@@ -33,15 +33,15 @@ class Queue:
             firstItem = self.items[self.start]
             start = self.start
 
-            # If there is only one item in the queue 
+            # If there is only one item in the queue
             # Set start and end to -1 after dequeuing
             if start == self.end:
                 self.start = -1
                 self.end = -1
-            # if item being dequeued is the last item 
+            # if item being dequeued is the last item
             # then set start to point to 0
             elif self.start + 1 == self.maxSize:
-                self.start = 0 
+                self.start = 0
             # Increase start pointer to point to the next item after dequeuing
             else:
                 self.start += 1
@@ -59,7 +59,7 @@ class Queue:
     def rear(self):
         if not self.isEmpty():
             return self.items[self.end]
-        
+
     def isFull(self):
         if (self.end + 1) == self.start:
             return True
@@ -85,7 +85,7 @@ queue = Queue(4)
 print("Is full ? ", queue.isFull())
 print("Is Empty ? ", queue.isEmpty())
 
-#Adding value to the queue
+# Adding value to the queue
 queue.enqueue(4)
 queue.enqueue(8)
 queue.enqueue(10)

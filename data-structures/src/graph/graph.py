@@ -1,18 +1,20 @@
 from collections import deque
+
+
 class Graph(object):
     def __init__(self, graph=None):
         self.adj_list = {} if graph is None else graph
-            
-    
+
     def add(self, node, edge):
         self.adj_list[node].append(edge)
-        
+
     def bfs(self, node):
-        if not node: return []
+        if not node:
+            return []
 
         visited = set(node)
         queue, result = deque([node]), []
-        
+
         while queue:
             curr_node = queue.popleft()
             result.append(curr_node)
@@ -22,9 +24,10 @@ class Graph(object):
                     queue.append(adj_node)
         return result
 
-
     def dfs(self, node):
-        if not node: return []
+        if not node:
+            return []
+
         def dfs_helper(node, graph, visited, result):
             visited.add(node)
             result.append(node)
@@ -37,10 +40,6 @@ class Graph(object):
         dfs_helper(node, self.adj_list, visited, result)
         return result
 
-                
-                
-             
-            
 
 sample = {
     "a": ["b", "c"],
@@ -58,4 +57,3 @@ print(graph.bfs("a"))
 print("\n\n")
 
 print(graph.dfs("a"))
-

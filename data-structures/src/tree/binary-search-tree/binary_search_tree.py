@@ -1,11 +1,13 @@
 from queue import *
 
+
 class BinarySearchTree:
     def __init__(self, data):
         super().__init__()
         self.data = data
         self.leftChild = None
         self.rightChild = None
+
 
 def insertNode(rootNode, nodeValue):
     if rootNode.data == None:
@@ -23,6 +25,7 @@ def insertNode(rootNode, nodeValue):
     print("Value inserted")
     return True
 
+
 # Traversing a tree using preOrderTraversal
 # Run time complexity O(n) & Space Complexity O(n)
 def preOrderTraversal(rootNode):
@@ -32,6 +35,7 @@ def preOrderTraversal(rootNode):
         print(rootNode.data)
         preOrderTraversal(rootNode.leftChild)
         preOrderTraversal(rootNode.rightChild)
+
 
 # Traversing a tree using inOrderTraversal
 # Run time complexity O(n) & Space Complexity O(n)
@@ -43,6 +47,7 @@ def inOrderTraversal(rootNode):
         print(rootNode.data)
         inOrderTraversal(rootNode.rightChild)
 
+
 # Traversing a tree using postOrderTraversal
 # Run time complexity O(n) & Space Complexity O(n)
 def postOrderTraversal(rootNode):
@@ -53,6 +58,7 @@ def postOrderTraversal(rootNode):
         postOrderTraversal(rootNode.rightChild)
         print(rootNode.data)
 
+
 # Traversing a tree using levelOrderTraversal
 # Run time complexity O(n) & Space Complexity O(n)
 def levelOrderTraversal(rootNode):
@@ -62,16 +68,15 @@ def levelOrderTraversal(rootNode):
         queue = Queue()
         queue.enqueue(rootNode)
 
-        while not(queue.isEmpty()):
+        while not (queue.isEmpty()):
             root = queue.dequeue()
             print(root.value.data)
-            
+
             if root.value.leftChild is not None:
                 queue.enqueue(root.value.leftChild)
 
             if root.value.rightChild is not None:
                 queue.enqueue(root.value.rightChild)
-
 
 
 def searchNode(rootNode, nodeValue):
@@ -101,6 +106,7 @@ def getMinValueNode(node):
         current = current.leftChild
     return current
 
+
 def deleteNode(rootNode, nodeValue):
     if rootNode is None:
         return rootNode
@@ -113,16 +119,17 @@ def deleteNode(rootNode, nodeValue):
             temp = rootNode.rightChild
             rootNode = None
             return temp
-        
+
         if rootNode.rightChild is None:
             temp = rootNode.leftChild
             rootNode = None
             return temp
-        
+
         temp = getMinValueNode(rootNode.rightChild)
-        rootNode.data = temp.data 
+        rootNode.data = temp.data
         rootNode.rightChild = deleteNode(rootNode.rightChild, temp.data)
     return rootNode
+
 
 # Deleting entire binary search tree
 # Run time complexity O(1) & Space Complexity O(1)
@@ -131,7 +138,6 @@ def deleteBinaryTree(rootNode):
     rootNode.leftChild = None
     rootNode.rightChild = None
     return True
-      
 
 
 root = BinarySearchTree(78)
@@ -162,7 +168,7 @@ levelOrderTraversal(root)
 print("--- End of LevelOrder Traversal --- \n\n")
 
 print("Searching for 311, Found --> ", searchNode(root, 311))
-print("Searching for 599, Found --> ", searchNode(root, 599), "\n\n" )
+print("Searching for 599, Found --> ", searchNode(root, 599), "\n\n")
 
 
 print("--- Deleting Node with Value '96' ---")

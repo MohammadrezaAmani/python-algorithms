@@ -6,6 +6,7 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 # Solution 1
 # Time O(n) | Space O(1)
 def deleteDuplicates(head):
@@ -14,12 +15,11 @@ def deleteDuplicates(head):
         it = node.next
         while it and it.val == node.val:
             it = it.next
-        
+
         node.next = it
         node = node.next
-    
-    return new_head
 
+    return new_head
 
 
 # Solution 2
@@ -32,9 +32,9 @@ def deleteDuplicates2(head):
         it = node.next
         while it and it.val == node.val:
             it = it.next
-        
+
         result.next = node
         result, node = result.next, it
-    
+
     result.next = None
     return sentinel.next

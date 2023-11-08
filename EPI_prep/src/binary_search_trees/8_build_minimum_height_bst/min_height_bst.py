@@ -1,5 +1,5 @@
 class TreeNode:
-    def __init__(self, val, left = None, right=None):
+    def __init__(self, val, left=None, right=None):
         self.val = val
         self.left, self.right = left, right
 
@@ -14,12 +14,12 @@ def build_min_height_bst(sorted_array):
     def build_bst(start, end):
         if start > end:
             return
-        
+
         mid = (start + end) // 2
 
         if 0 <= mid < len(sorted_array):
-            left_subtree = build_bst(start, mid-1)
-            right_subtree = build_bst(mid+1, end)
+            left_subtree = build_bst(start, mid - 1)
+            right_subtree = build_bst(mid + 1, end)
 
             return TreeNode(sorted_array[mid], left_subtree, right_subtree)
 
@@ -29,15 +29,14 @@ def build_min_height_bst(sorted_array):
 def inorder(tree):
     if tree is None:
         return
-    
+
     inorder(tree.left)
     print(tree.val)
     inorder(tree.right)
 
 
-
 print("Example 1")
-result_1 = build_min_height_bst([1,2,3,4,5,6,7])
+result_1 = build_min_height_bst([1, 2, 3, 4, 5, 6, 7])
 inorder(result_1)
 
 print("\nExample 2")

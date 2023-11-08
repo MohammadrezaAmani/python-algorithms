@@ -1,8 +1,9 @@
 # leetcode 96
 class Node:
-    def __init__(self, val, left = None, right = None) -> None:
+    def __init__(self, val, left=None, right=None) -> None:
         self.val = val
         self.left, self.right = left, right
+
 
 def generate_binary_trees(n):
     if n <= 0:
@@ -16,10 +17,10 @@ def generate_binary_trees(n):
 
         for left in left_subtrees:
             for right in right_subtrees:
-                result.append(Node(0, left, right) )
-        
+                result.append(Node(0, left, right))
 
     return result
+
 
 # d = len(generate_binary_trees(2))
 

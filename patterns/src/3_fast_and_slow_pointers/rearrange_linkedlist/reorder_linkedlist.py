@@ -1,8 +1,9 @@
 from __future__ import print_function
 
 # Time Complexity
-# The above algorithm will have a time complexity of O(N) 
+# The above algorithm will have a time complexity of O(N)
 # where ‘N’ is the number of nodes in the LinkedList.
+
 
 # Space Complexity
 # The algorithm runs in constant space O(1)O(1).
@@ -14,7 +15,7 @@ class Node:
     def print_list(self):
         temp = self
         while temp is not None:
-            print(str(temp.value) + " ", end='')
+            print(str(temp.value) + " ", end="")
             temp = temp.next
         print()
 

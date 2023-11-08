@@ -4,6 +4,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 def find_lca(tree, p, q):
     while tree:
         if p.val < tree.val and q.val < tree.val:
@@ -15,19 +16,21 @@ def find_lca(tree, p, q):
 
     return None
 
+
 def find_lca_recursive(tree, p, q):
     def find_lca_helper(node):
         if node is None:
             return None
-        
+
         if p.val < node.val and q.val < node.val:
             return find_lca_helper(node.left)
         elif p.val > node.val and q.val > node.val:
             return find_lca_helper(node.right)
         else:
             return node
-    
+
     return find_lca_helper(tree)
+
 
 bst = TreeNode(19)
 bst_1 = TreeNode(7)
@@ -61,11 +64,11 @@ bst_6.right = bst_11
 
 
 print("Iterative Solution\n")
-print(find_lca(bst, bst_15, bst_5).val) 
-print(find_lca(bst, bst_14, bst_15).val) 
-print(find_lca(bst, bst_4, bst_9).val) 
+print(find_lca(bst, bst_15, bst_5).val)
+print(find_lca(bst, bst_14, bst_15).val)
+print(find_lca(bst, bst_4, bst_9).val)
 
 print("\nRecursive Solution\n")
-print(find_lca_recursive(bst, bst_15, bst_5).val) 
-print(find_lca_recursive(bst, bst_14, bst_15).val) 
-print(find_lca_recursive(bst, bst_4, bst_9).val) 
+print(find_lca_recursive(bst, bst_15, bst_5).val)
+print(find_lca_recursive(bst, bst_14, bst_15).val)
+print(find_lca_recursive(bst, bst_4, bst_9).val)
