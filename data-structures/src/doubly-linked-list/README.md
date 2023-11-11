@@ -1,110 +1,99 @@
-# Doubly Linked List
+# لیست پیوندی دوطرفه
 
-In computer science, a **doubly linked list** is a linked data structure that
-consists of a set of sequentially linked records called nodes. Each node contains
-two fields, called links, that are references to the previous and to the next
-node in the sequence of nodes. The beginning and ending nodes' previous and next
-links, respectively, point to some kind of terminator, typically a sentinel
-node or null, to facilitate the traversal of the list. If there is only one
-sentinel node, then the list is circularly linked via the sentinel node. It can
-be conceptualized as two singly linked lists formed from the same data items,
-but in opposite sequential orders.
+در علوم کامپیوتر، **لیست پیوندی دوطرفه** یک ساختار داده پیوندی است که از مجموعه‌ای از رکوردهای پیوندی به صورت متوالی تشکیل شده است. هر رکورد شامل دو فیلد به نام‌های پیوند به قبل و به بعد است که به ترتیب به رکورد قبلی و رکورد بعدی در دنباله رکوردها اشاره دارند. پیوندهای قبل و بعد از رکوردهای ابتدایی و انتهای لیست به نوعی پایان‌گر، معمولاً یک رکورد نشانگر یا null، اشاره دارند تا ناوبری در لیست را تسهیل کنند. اگر تنها یک رکورد نشانگر وجود داشته باشد، لیست از طریق رکورد نشانگر به صورت دوری متصل است. می‌توان آن را به عنوان دو لیست پیوندی تصور کرد که از یکسان‌های داده‌ها تشکیل شده‌اند، اما به ترتیب متوالی معکوس.
 
-![Doubly Linked List](../../assets/doubly-linked-list.jpeg)
+![لیست پیوندی دوطرفه](../../assets/doubly-linked-list.jpeg)
 
-*Made with [okso.app](https://okso.app)*
+*ساخته شده با [okso.app](https://okso.app)*
 
-The two node links allow traversal of the list in either direction. While adding
-or removing a node in a doubly linked list requires changing more links than the
-same operations on a singly linked list, the operations are simpler and
-potentially more efficient (for nodes other than first nodes) because there
-is no need to keep track of the previous node during traversal or no need
-to traverse the list to find the previous node, so that its link can be modified.
+دو پیوند این امکان را به وجود می‌آورند که در هر دو جهت در لیست حرکت کرد. هرچند افزودن یا حذف یک رکورد در لیست پیوندی دوطرفه نیاز به تغییر بیشتری از عملیات مشابه در لیست پیوندی یکطرفه دارد، اما عملیات‌ها ساده‌تر و به نظر موثرتر هستند (برای رکوردهایی که اولین رکوردها نیستند) زیرا نیازی به پیگیری رکورد قبلی در حین ناوبری یا نیاز به ناوبری در لیست برای یافتن رکورد قبلی وجود ندارد تا پیوند آن تغییر کند.
 
-## Pseudocode for Basic Operations
+## کد سیگنال برای عملیات اصلی
 
-### Insert
+### درج
 
 ```text
-Add(value)
-  Pre: value is the value to add to the list
-  Post: value has been placed at the tail of the list
-  n ← node(value)
-  if head = ø
-    head ← n
-    tail ← n
-  else
-    n.previous ← tail
-    tail.next ← n
-    tail ← n
-  end if
-end Add
+افزودن(مقدار)
+  قبل: مقدار مقداری است که باید به لیست اضافه شود
+  بعد: مقدار به دماغه لیست اضافه شده است
+  n ← گره(مقدار)
+  اگر سر = ø
+    سر ← n
+    دماغه ← n
+  وگرنه
+    n.قبلی ← دماغه
+    دماغه.بعد ← n
+    دماغه ← n
+  پایان اگر
+پایان افزودن
 ```
 
-### Delete
+### حذف
 
 ```text
-Remove(head, value)
-  Pre: head is the head node in the list
-       value is the value to remove from the list
-  Post: value is removed from the list, true; otherwise false
-  if head = ø
-    return false
-  end if
-  if value = head.value
-    if head = tail
-      head ← ø
-      tail ← ø
-    else
-      head ← head.next
-      head.previous ← ø
-    end if
-    return true
-  end if
-  n ← head.next
-  while n != ø and value !== n.value
-    n ← n.next
-  end while
-  if n = tail
-    tail ← tail.previous
-    tail.next ← ø
-    return true
-  else if n != ø
-    n.previous.next ← n.next
-    n.next.previous ← n.previous
-    return true
-  end if
-  return false
-end Remove
+حذف(سر, مقدار)
+  قبل: سر گره ابتدایی در لیست است
+       مقدار مقداری است که باید از لیست حذف شود
+  بعد: مقدار از لیست حذف شده است یا خیر
+  اگر سر = ø
+    برگردان درست نیست
+  پایان اگر
+  اگر مقدار = سر.مقدار
+    اگر سر = دماغه
+      سر ← ø
+      دماغه ← ø
+    وگرنه
+      سر ← سر.بعد
+      سر.قبلی ← ø
+    پایان اگر
+    برگردان درست است
+  پایان اگر
+  n ← سر.بعد
+  تا وقتی که n ≠ ø و مقدار !== n.مقدار
+    n ← n.بعد
+  پایان تا وقتی
+  اگر n = دماغه
+    دماغه ← دماغه.قبلی
+    دماغه.بعد ← ø
+    برگردان درست است
+  وگرنه اگر n ≠ ø
+    n.قبلی.بعد ← n.بعد
+    n.بعد.قبلی ← n.قبلی
+    برگردان درست است
+  پایان اگر
+  برگردان درست نیست
+پایان حذف
 ```
 
-### Reverse Traversal
+### گردش معکوس
 
 ```text
-ReverseTraversal(tail)
-  Pre: tail is the node of the list to traverse
-  Post: the list has been traversed in reverse order
-  n ← tail
-  while n != ø
-    yield n.value
-    n ← n.previous
-  end while
-end Reverse Traversal
+گردش_معکوس(دماغه)
+  قبل: دماغه گره نهایی در لیست است
+  بعد: لیست به ترتیب معکوس گردش زده شده است
+  n ← دماغه
+  تا وقتی که n ≠ ø
+    به داده n.مقدار بده
+    n ← n.قبلی
+  پایان تا وقتی
+پایان 
+
+گردش_معکوس
 ```
 
-## Complexities
+## پیچیدگی‌ها
 
-## Time Complexity
+### پیچیدگی زمانی
 
-| Access    | Search    | Insertion | Deletion  |
+| دسترسی   | جستجو   | درج      | حذف      |
 | :-------: | :-------: | :-------: | :-------: |
 | O(n)      | O(n)      | O(1)      | O(n)      |
 
-### Space Complexity
+### پیچیدگی فضایی
 
 O(n)
 
-## References
+## مراجع
 
-- [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list)
-- [YouTube](https://www.youtube.com/watch?v=JdQeNxWCguQ&t=7s&index=72&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8)
+- [ویکی‌پدیا](https://en.wikipedia.org/wiki/Doubly_linked_list)
+- [یوتیوب](https://www.youtube.com/watch?v=JdQeNxWCguQ&t=7s&index=72&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8)
