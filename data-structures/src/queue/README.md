@@ -1,47 +1,24 @@
-# Queue
+# صف
 
 _Read this in other languages:_
-[_简体中文_](README.zh-CN.md),
-[_Русский_](README.ru-RU.md),
-[_日本語_](README.ja-JP.md),
-[_Français_](README.fr-FR.md),
-[_Português_](README.pt-BR.md),
-[_한국어_](README.ko-KR.md)
+[_english_](README_en.md),
 
-In computer science, a **queue** is a particular kind of abstract data
-type or collection in which the entities in the collection are
-kept in order and the principle (or only) operations on the
-collection are the addition of entities to the rear terminal
-position, known as enqueue, and removal of entities from the
-front terminal position, known as dequeue. This makes the queue
-a First-In-First-Out (FIFO) data structure. In a FIFO data
-structure, the first element added to the queue will be the
-first one to be removed. This is equivalent to the requirement
-that once a new element is added, all elements that were added
-before have to be removed before the new element can be removed.
-Often a peek or front operation is also entered, returning the
-value of the front element without dequeuing it. A queue is an
-example of a linear data structure, or more abstractly a
-sequential collection.
+در علوم کامپیوتر، **صف** یک نوع خاص از ساختار داده یا مجموعه انتزاعی است که در آن، موجودیت‌ها به ترتیب نگه داشته می‌شوند و اصل (یا تنها) عملیات‌های مجموعه افزودن موجودیت به موقعیت پایانی پشتوانه، به نام "قرار دادن در صف"، و حذف موجودیت از موقعیت پایانی جلو، به نام "خارج کردن از صف" است. این ویژگی باعث می‌شود که صف یک ساختار داده از نوع "اولین وارد شده، اولین خارج می‌شود" (First-In-First-Out یا FIFO) باشد. در یک ساختار داده FIFO، اولین عنصر اضافه شده به صف، اولین عنصری خواهد بود که حذف می‌شود. این معادل است با شرطی که یک عنصر جدید اضافه شد، باید تمام عناصری که قبلاً اضافه شده‌اند، پیش از اینکه عنصر جدید حذف شود، حذف شوند. اغلب عملیات "نگاه کردن به" یا "عملیات جلو" نیز وارد می‌شود که مقدار عنصر جلو را بدون حذف آن برمی‌گرداند. یک صف نمونه‌ای از یک ساختار داده خطی است، یا به طور انتزاعی یک مجموعه توالی.
 
-Representation of a FIFO (first in, first out) queue
+نمایش یک صف از نوع FIFO (اولین وارد شده، اولین خارج شده)
 
 ![Queue](../../assets/queue.jpeg)
 
-*Made with [okso.app](https://okso.app)*
+*ساخته شده با [okso.app](https://okso.app)*
 
+## پیچیدگی‌های زمانی برای پیاده‌سازی‌های مختلف یک صف
 
+![صف با لیست](./../../assets/queue_with_list.png)
+![صف با لیست پیوندی](./../../assets/queue_linkedlist.png)
+![صف دوری](./../../assets/circular_queue.png)
+![مقایسه‌های صف](./../../assets/queue_comparisons.png)
 
+## مراجع
 
-## Time Complexities for different implementations of a Queue
-
-![Queue With list](./../../assets/queue_with_list.png)
-![Queue With linkedlist](./../../assets/queue_linkedlist.png)
-![Circular Queue](./../../assets/circular_queue.png)
-![Queue Comparisons](./../../assets/queue_comparisons.png)
-
-
-## References
-
-- [Wikipedia](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
-- [YouTube](https://www.youtube.com/watch?v=wjI1WNcIntg&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&index=3&)
+- [ویکی‌پدیا](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+- [یوتیوب](https://www.youtube.com/watch?v=wjI1WNcIntg&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&index=3&)
