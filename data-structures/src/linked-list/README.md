@@ -1,160 +1,141 @@
-# Linked List
+# لیست پیوندی
 
-In computer science, a **linked list** is a linear collection
-of data elements, in which linear order is not given by
-their physical placement in memory. Instead, each
-element points to the next. It is a data structure
-consisting of a group of nodes which together represent
-a sequence. Under the simplest form, each node is
-composed of data and a reference (in other words,
-a link) to the next node in the sequence. This structure
-allows for efficient insertion or removal of elements
-from any position in the sequence during iteration.
-More complex variants add additional links, allowing
-efficient insertion or removal from arbitrary element
-references. A drawback of linked lists is that access
-time is linear (and difficult to pipeline). Faster
-access, such as random access, is not feasible. Arrays
-have better cache locality as compared to linked lists.
+در علوم کامپیوتر، **لیست پیوندی** یک مجموعه خطی از عناصر داده است که ترتیب خطی آن‌ها توسط قرار گیری فیزیکی در حافظه مشخص نمی‌شود. به جای آن، هر عنصر به عنصر بعدی اشاره دارد. این یک ساختار داده است که از گروهی از گره‌ها تشکیل شده است که به همراه هم یک دنباله را نمایان می‌کنند. در ساده‌ترین فرم، هر گره از داده و یک ارجاع (به عبارت دیگر، یک پیوند) به گره بعدی در دنباله تشکیل شده است. این ساختار امکان افزودن یا حذف کارآمد عناصر را از هر موقعیتی در دنباله در حین حلقه‌زنی فراهم می‌کند. نسخه‌های پیچیده‌تر، پیوندهای اضافی اضافه می‌کنند که افزودن یا حذف کارآمد از مراجعه به عناصر دلخواه امکان‌پذیر باشد. یک نقطه ضعف از لیست‌های پیوندی این است که زمان دسترسی خطی است (و سخت به خط لوله‌ای کردن است). دسترسی سریع مانند دسترسی تصادفی امکان‌پذیر نیست. آرایه‌ها بهترین دسترسی به حافظه را نسبت به لیست‌های پیوندی دارند.
 
-![Linked List](../../assets/linked-list.jpeg)
+![لیست پیوندی](../../assets/linked-list.jpeg)
 
-*Made with [okso.app](https://okso.app)*
+*ساخته شده با [okso.app](https://okso.app)*
 
-## Pseudocode for Basic Operations
+## کد سیگنال برای عملیات اصلی
 
-### Insert
+### درج
+```python
+افزودن(مقدار)
+  قبل: مقدار مقداری است که باید به لیست اضافه شود
+  بعد: مقدار به دماغه لیست اضافه شده است
+  n ← گره(مقدار)
+  اگر سر = ø
+    سر ← n
+    دماغه ← n
+  وگرنه
+    دماغه.بعد ← n
+    دماغه ← n
+  پایان اگر
+پایان افزودن
 
-```text
-Add(value)
-  Pre: value is the value to add to the list
-  Post: value has been placed at the tail of the list
-  n ← node(value)
-  if head = ø
-    head ← n
-    tail ← n
-  else
-    tail.next ← n
-    tail ← n
-  end if
-end Add
+قبل: مقدار مقداری است که باید به لیست اضافه شود
+  بعد: مقدار به سر لیست اضافه شده است
+  n ← گره(مقدار)
+  n.بعد ← سر
+  سر ← n
+  اگر دماغه = ø
+    دماغه ← n
+  پایان اگر
+پایان افزودن
 ```
 
-```text
-Prepend(value)
- Pre: value is the value to add to the list
- Post: value has been placed at the head of the list
- n ← node(value)
- n.next ← head
- head ← n
- if tail = ø
-   tail ← n
- end
-end Prepend
+### جستجو
+
+```python
+شامل(سر, مقدار)
+  قبل: سر گره ابتدایی در لیست است
+       مقدار مقداری است که برای جستجوی آن استفاده می‌شود
+  بعد: مورد در لیست پیوندی است یا خیر
+  n ← سر
+  تا وقتی که n ≠ ø و n.مقدار ≠ مقدار
+    n ← n.بعد
+  پایان تا وقتی
+  اگر n = ø
+    برگردان درست نیست
+  پایان اگر
+  برگردان درست است
+پایان شامل
 ```
 
-### Search
 
-```text
-Contains(head, value)
-  Pre: head is the head node in the list
-       value is the value to search for
-  Post: the item is either in the linked list, true; otherwise false
-  n ← head
-  while n != ø and n.value != value
-    n ← n.next
-  end while
-  if n = ø
-    return false
-  end if
-  return true
-end Contains
+### حذف
+
+```python
+حذف(سر, مقدار)
+  قبل: سر گره ابتدایی در لیست است
+       مقدار مقداری است که باید از لیست حذف شود
+  بعد: مقدار از لیست حذف شده است یا خیر
+  اگر سر = ø
+    برگردان درست نیست
+  پایان اگر
+  n ← سر
+  اگر n.مقدار = مقدار
+    اگر سر = دماغه
+      سر ← ø
+      دماغه ← ø
+    وگرنه
+      سر ← سر.بعد
+    پایان اگر
+    برگردان درست است
+  پایان اگر
+  تا وقتی که n.بعد ≠ ø و n.بعد.مقدار ≠ مقدار
+    n ← n.بعد
+  پایان تا وقتی
+  اگر n.بعد ≠ ø
+    اگر n.بعد = دماغه
+      دماغه ← n
+      دماغه.بعد ← null
+    وگرنه
+      n.بعد ← n.بعد.بعد
+    پایان اگر
+    برگردان درست است
+  پایان اگر
+  برگردان درست نیست
+پایان حذف
 ```
 
-### Delete
+### گردش
+```python
+گردش(سر)
+  قب
 
-```text
-Remove(head, value)
-  Pre: head is the head node in the list
-       value is the value to remove from the list
-  Post: value is removed from the list, true, otherwise false
-  if head = ø
-    return false
-  end if
-  n ← head
-  if n.value = value
-    if head = tail
-      head ← ø
-      tail ← ø
-    else
-      head ← head.next
-    end if
-    return true
-  end if
-  while n.next != ø and n.next.value != value
-    n ← n.next
-  end while
-  if n.next != ø
-    if n.next = tail
-      tail ← n
-      tail.next = null
-    else
-      n.next ← n.next.next
-    end if
-    return true
-  end if
-  return false
-end Remove
+ل: سر گره ابتدایی در لیست است
+  بعد: عناصر در لیست گردش زده شده‌اند
+  n ← سر
+  تا وقتی که n ≠ ø
+    به داده n.مقدار بده
+    n ← n.بعد
+  پایان تا وقتی
+پایان گردش
 ```
 
-### Traverse
-
-```text
-Traverse(head)
-  Pre: head is the head node in the list
-  Post: the items in the list have been traversed
-  n ← head
-  while n != ø
-    yield n.value
-    n ← n.next
-  end while
-end Traverse
+### گردش معکوس
+```python
+گردش_معکوس(سر, دماغه)
+  قبل: سر و دماغه به یک لیست تعلق دارند
+  بعد: عناصر در لیست به ترتیب معکوس گردش زده شده‌اند
+  اگر دماغه ≠ ø
+    کرنت ← دماغه
+    تا وقتی که کرنت ≠ سر
+      پرورد ← سر
+      تا وقتی که پرورد.بعد ≠ کرنت
+        پرورد ← پرورد.بعد
+      پایان تا وقتی
+      به داده کرنت.مقدار بده
+      کرنت ← پرورد
+    پایان تا وقتی
+    به داده کرنت.مقدار بده
+  پایان اگر
+پایان گردش_معکوس
 ```
+## پیچیدگی‌ها
 
-### Traverse in Reverse
+### پیچیدگی زمانی
 
-```text
-ReverseTraversal(head, tail)
-  Pre: head and tail belong to the same list
-  Post: the items in the list have been traversed in reverse order
-  if tail != ø
-    curr ← tail
-    while curr != head
-      prev ← head
-      while prev.next != curr
-        prev ← prev.next
-      end while
-      yield curr.value
-      curr ← prev
-    end while
-   yield curr.value
-  end if
-end ReverseTraversal
-```
-
-## Complexities
-
-### Time Complexity
-
-| Access    | Search    | Insertion | Deletion  |
+| دسترسی   | جستجو   | درج      | حذف      |
 | :-------: | :-------: | :-------: | :-------: |
 | O(n)      | O(n)      | O(1)      | O(n)      |
 
-### Space Complexity
+### پیچیدگی فضایی
 
 O(n)
 
-## References
+## مراجع
 
-- [Wikipedia](https://en.wikipedia.org/wiki/Linked_list)
-- [YouTube](https://www.youtube.com/watch?v=njTh_OwMljA&index=2&t=1s&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8)
+- [ویکی‌پدیا](https://en.wikipedia.org/wiki/Linked_list)
+- [یوتیوب](https://www.youtube.com/watch?v=njTh_OwMljA&index=2&t=1s&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8)
